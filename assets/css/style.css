@@ -41,6 +41,13 @@ body {
   position: relative;
 }
 
+.text-bg-custom {
+  background-color: var(--bs-primary);
+  color: #fff !important;
+  font-size: 8px;
+  font-weight: 800;
+}
+
 ::-moz-selection {
   background-color: var(--bs-black);
   color: var(--bs-white);
