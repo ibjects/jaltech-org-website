@@ -353,6 +353,7 @@ const inlineSvgInit = () => {
   const imgElements = document.querySelectorAll(".js-img-to-inline-svg");
   if (imgElements) {
     imgElements.forEach((imgElement) => {
+      if (!imgURL.toLowerCase().endsWith(".svg")) return;
       const imgURL = imgElement.getAttribute("src");
 
       fetch(imgURL)
