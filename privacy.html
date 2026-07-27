@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="JALTech Privacy Policy describing how personal data is collected, used, disclosed, secured, retained, transferred, and protected in accordance with applicable privacy laws, including the Saudi Personal Data Protection Law (PDPL).">
+  <meta name="robots" content="index, follow">
+  <title>Privacy Policy | JALTech</title>
+
+  <!-- ======= Google Font ======= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+
+  <!-- ======= Styles used by the main JALTech website ======= -->
+  <link href="assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendors/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/vendors/aos/aos.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- ======= Page-specific legal document styles ======= -->
+  <style>
+    :root {
+      --legal-ink: #17222b;
+      --legal-muted: #61707b;
+      --legal-border: rgba(23, 34, 43, 0.12);
+      --legal-surface: #ffffff;
+      --legal-soft: #f4f8f7;
+      --legal-accent: var(--bs-primary, #087f5b);
+      --legal-accent-dark: #075f47;
+      --legal-hero: #0d2f29;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--legal-ink);
+      background: var(--legal-soft);
+      line-height: 1.75;
+    }
+
+    .legal-header.fbs__net-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+    }
+
+    .legal-header .navbar-brand img {
+      max-height: 38px;
+      width: auto;
+    }
+
+    .legal-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 9.5rem 0 5.75rem;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 88% 15%, rgba(255, 255, 255, 0.15), transparent 26%),
+        radial-gradient(circle at 8% 90%, rgba(92, 214, 170, 0.2), transparent 28%),
+        linear-gradient(135deg, var(--legal-hero), #174b40 72%, #1c5f4f);
+    }
+
+    .legal-hero::after {
+      content: "";
+      position: absolute;
+      right: -130px;
+      bottom: -190px;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 48px rgba(255, 255, 255, 0.035),
+        0 0 0 96px rgba(255, 255, 255, 0.025);
+      pointer-events: none;
+    }
+
+    .legal-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.1rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: #b9f2dc;
+    }
+
+    .legal-hero h1 {
+      max-width: 850px;
+      margin-bottom: 1.25rem;
+      color: #ffffff;
+      font-size: clamp(2.35rem, 5vw, 4.75rem);
+      line-height: 1.03;
+      letter-spacing: -0.055em;
+    }
+
+    .legal-hero .lead {
+      max-width: 760px;
+      margin-bottom: 1.65rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+    }
+
+    .legal-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .legal-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.48rem 0.82rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.84rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .legal-layout {
+      padding: 4.5rem 0 6rem;
+    }
+
+    .legal-sidebar {
+      position: sticky;
+      top: 105px;
+      padding: 1.35rem;
+      border: 1px solid var(--legal-border);
+      border-radius: 1.25rem;
+      background: var(--legal-surface);
+      box-shadow: 0 18px 50px rgba(28, 48, 42, 0.07);
+    }
+
+    .legal-sidebar-title {
+      margin-bottom: 0.9rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--legal-muted);
+    }
+
+    .legal-toc {
+      display: grid;
+      gap: 0.25rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .legal-toc a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.62rem 0.7rem;
+      border-radius: 0.7rem;
+      color: #30433d;
+      font-size: 0.9rem;
+      font-weight: 650;
+      text-decoration: none;
+      transition: 160ms ease;
+    }
+
+    .legal-toc a:hover,
+    .legal-toc a:focus-visible {
+      color: var(--legal-accent-dark);
+      background: #eaf5f1;
+      outline: none;
+    }
+
+    .legal-document {
+      padding: clamp(1.35rem, 4vw, 3.4rem);
+      border: 1px solid var(--legal-border);
+      border-radius: 1.5rem;
+      background: var(--legal-surface);
+      box-shadow: 0 24px 70px rgba(28, 48, 42, 0.08);
+    }
+
+    .legal-intro {
+      margin-bottom: 2rem;
+      padding: 1.15rem 1.25rem;
+      border-left: 4px solid var(--legal-accent);
+      border-radius: 0 0.85rem 0.85rem 0;
+      background: #eef8f4;
+    }
+
+    .legal-intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .legal-section {
+      padding-top: 1.2rem;
+      scroll-margin-top: 110px;
+    }
+
+    .legal-section + .legal-section {
+      margin-top: 2.5rem;
+      padding-top: 3.25rem;
+      border-top: 1px solid var(--legal-border);
+    }
+
+    .legal-section h2 {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.15rem;
+      color: var(--legal-ink);
+      font-size: clamp(1.55rem, 3vw, 2.15rem);
+      line-height: 1.2;
+      letter-spacing: -0.035em;
+    }
+
+    .legal-section h2 .section-number {
+      display: inline-grid;
+      flex: 0 0 auto;
+      width: 2.15rem;
+      height: 2.15rem;
+      place-items: center;
+      border-radius: 50%;
+      background: #e5f4ee;
+      color: var(--legal-accent-dark);
+      font-size: 0.83rem;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .legal-section h3 {
+      margin-top: 1.85rem;
+      margin-bottom: 0.75rem;
+      color: #233a33;
+      font-size: 1.13rem;
+      font-weight: 780;
+      letter-spacing: -0.02em;
+    }
+
+    .legal-section p,
+    .legal-section li,
+    .definition-card dd {
+      color: #4d5f59;
+      font-size: 0.98rem;
+    }
+
+    .legal-section p:last-child,
+    .legal-section ul:last-child,
+    .legal-section ol:last-child {
+      margin-bottom: 0;
+    }
+
+    .legal-section ul,
+    .legal-section ol {
+      padding-left: 1.25rem;
+    }
+
+    .legal-section li {
+      margin-bottom: 0.62rem;
+      padding-left: 0.25rem;
+    }
+
+    .legal-section li::marker {
+      color: var(--legal-accent);
+      font-weight: 800;
+    }
+
+    .definition-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 1.15rem;
+    }
+
+    .definition-card {
+      height: 100%;
+      padding: 1rem 1.05rem;
+      border: 1px solid var(--legal-border);
+      border-radius: 1rem;
+      background: #fbfdfc;
+    }
+
+    .definition-card dt {
+      margin-bottom: 0.3rem;
+      color: #1e382f;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .definition-card dd {
+      margin: 0;
+      line-height: 1.58;
+    }
+
+    .legal-callout {
+      display: flex;
+      gap: 0.9rem;
+      margin: 1.3rem 0;
+      padding: 1rem 1.1rem;
+      border: 1px solid #d7ebe3;
+      border-radius: 1rem;
+      background: #f2faf7;
+    }
+
+    .legal-callout i {
+      flex: 0 0 auto;
+      margin-top: 0.12rem;
+      color: var(--legal-accent-dark);
+      font-size: 1.2rem;
+    }
+
+    .legal-callout p {
+      margin: 0;
+    }
+
+    .legal-subcard {
+      margin-top: 1rem;
+      padding: 1.15rem;
+      border: 1px solid var(--legal-border);
+      border-radius: 1rem;
+      background: #fbfcfc;
+    }
+
+    .legal-subcard h3:first-child {
+      margin-top: 0;
+    }
+
+    .legal-contact {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      padding: 1.2rem 1.3rem;
+      border-radius: 1rem;
+      background: var(--legal-hero);
+      color: #ffffff;
+    }
+
+    .legal-contact p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .legal-contact a {
+      color: #ffffff;
+    }
+
+    .legal-contact .btn {
+      flex: 0 0 auto;
+      border-color: #ffffff;
+      background: #ffffff;
+      color: var(--legal-hero);
+    }
+
+    .legal-contact .btn:hover {
+      border-color: #d9f4e9;
+      background: #d9f4e9;
+      color: var(--legal-hero);
+    }
+
+    .legal-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+
+    .legal-footer-links a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .legal-footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 991.98px) {
+      .legal-hero {
+        padding-top: 8rem;
+      }
+
+      .legal-sidebar {
+        position: static;
+        margin-bottom: 1.5rem;
+      }
+
+      .legal-toc {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .legal-hero {
+        padding: 7.25rem 0 4.25rem;
+      }
+
+      .legal-layout {
+        padding: 2.5rem 0 4rem;
+      }
+
+      .legal-document {
+        border-radius: 1.1rem;
+      }
+
+      .legal-toc,
+      .definition-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .legal-contact {
+        align-items: stretch;
+      }
+
+      .legal-contact .btn {
+        width: 100%;
+      }
+
+      .legal-footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media print {
+      .legal-header,
+      .legal-sidebar,
+      #back-to-top,
+      .footer,
+      .legal-contact .btn {
+        display: none !important;
+      }
+
+      body,
+      .legal-layout {
+        background: #ffffff !important;
+      }
+
+      .legal-hero {
+        padding: 2rem 0;
+        color: #000000;
+        background: #ffffff !important;
+      }
+
+      .legal-hero h1,
+      .legal-hero .lead,
+      .legal-meta span,
+      .legal-eyebrow {
+        color: #000000 !important;
+      }
+
+      .legal-document {
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+      }
+
+      .legal-section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+
+  <!-- ======= Apply theme before paint ======= -->
+  <script>
+    (function () {
+      const storedTheme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-bs-theme", storedTheme);
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="site-wrap">
+    <!-- ======= Header ======= -->
+    <header class="legal-header fbs__net-navbar navbar navbar-expand-lg dark" aria-label="JALTech navigation">
+      <div class="container d-flex align-items-center justify-content-between">
+        <a class="navbar-brand w-auto" href="index.html" aria-label="JALTech home">
+          <img class="logo dark img-fluid" src="assets/images/logo-dark.svg" alt="JALTech">
+          <img class="logo light img-fluid" src="assets/images/logo-light.svg" alt="JALTech">
+        </a>
+
+        <div class="offcanvas offcanvas-start w-75" id="legal-nav" tabindex="-1" aria-labelledby="legal-nav-label">
+          <div class="offcanvas-header">
+            <div class="offcanvas-header-logo">
+              <a class="logo-link" id="legal-nav-label" href="index.html">
+                <img class="logo dark img-fluid" src="assets/images/logo-dark.svg" alt="JALTech">
+                <img class="logo light img-fluid" src="assets/images/logo-light.svg" alt="JALTech">
+              </a>
+            </div>
+            <button class="btn-close btn-close-black" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <div class="offcanvas-body align-items-lg-center">
+            <ul class="navbar-nav nav me-auto ps-lg-5 mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#policy">Privacy Policy</a></li>
+              <li class="nav-item"><a class="nav-link" href="#rights">Your Rights</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ms-auto w-auto">
+          <div class="header-social d-flex align-items-center gap-1">
+            <a class="btn btn-primary py-2" href="https://jaltech.org/#contact">Contact Us</a>
+            <button class="fbs__net-navbar-toggler justify-content-center align-items-center ms-auto" type="button"
+              data-bs-toggle="offcanvas" data-bs-target="#legal-nav" aria-controls="legal-nav"
+              aria-label="Toggle navigation" aria-expanded="false">
+              <svg class="fbs__net-icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <line x1="21" x2="3" y1="6" y2="6"></line>
+                <line x1="15" x2="3" y1="12" y2="12"></line>
+                <line x1="17" x2="3" y1="18" y2="18"></line>
+              </svg>
+              <svg class="fbs__net-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <main>
+      <!-- ======= Hero ======= -->
+      <section class="legal-hero">
+        <div class="container position-relative" style="z-index: 1;">
+          <span class="legal-eyebrow"><i class="bi bi-shield-check"></i> Personal Data Protection</span>
+          <h1>Privacy Policy</h1>
+          <p class="lead">This Policy explains how JALTech collects, uses, discloses, stores, transfers, secures, and destroys personal data, and how individuals may exercise their privacy rights.</p>
+          <div class="legal-meta">
+            <span><i class="bi bi-calendar3"></i> Last updated: 27 July 2026</span>
+            <span><i class="bi bi-geo-alt"></i> Saudi PDPL aligned</span>
+            <span><i class="bi bi-lock"></i> Privacy and data protection</span>
+          </div>
+        </div>
+      </section>
+      <!-- End Hero -->
+
+      <section class="legal-layout" id="policy">
+        <div class="container">
+          <div class="row g-4 g-xl-5 align-items-start">
+            <aside class="col-lg-3" aria-label="Contents">
+              <nav class="legal-sidebar">
+                <div class="legal-sidebar-title">On this page</div>
+                <ul class="legal-toc">
+                  <li><a href="#introduction">Introduction <i class="bi bi-arrow-right-short"></i></a></li>
+                  <li><a href="#roles">Our Privacy Role <i class="bi bi-arrow-right-short"></i></a></li>
+                  <li><a href="#data-collected">Data We Collect <i class="bi bi-arrow-right-short"></i></a></li>
+                  <li><a href="#collection">Collection Methods <i class="bi bi-arrow-right-short"></i></a></li>
+                  <li><a href="#purposes">Purposes &amp; Legal Bases <i class="bi bi-arrow-right-short"></i></a></li>
+                  <li><a href="#cookies">Cookies &amp; Logs <i class="bi bi-arrow-right-short"></i></a></li>
+                  <li><a href="#disclosure">Disclosure <i class="bi bi-arrow-right-short"></i></a></li>
+                  <li><a href="#transfers">Storage &amp; Transfers <i class="bi bi-arrow-right-short"></i></a></li>
+                  <li><a href="#retention">Retention &amp; Destruction <i class="bi bi-arrow-right-short"></i></a></li>
+                  <li><a href="#security">Security <i class="bi bi-arrow-right-short"></i></a></li>
+                  <li><a href="#rights">Your Rights <i class="bi bi-arrow-right-short"></i></a></li>
+                  <li><a href="#requests">Rights Requests <i class="bi bi-arrow-right-short"></i></a></li>
+                  <li><a href="#children">Children <i class="bi bi-arrow-right-short"></i></a></li>
+                  <li><a href="#contact">Contact &amp; Complaints <i class="bi bi-arrow-right-short"></i></a></li>
+                </ul>
+              </nav>
+            </aside>
+
+            <div class="col-lg-9">
+              <article class="legal-document">
+                <div class="legal-intro" id="introduction">
+                  <p><strong>JALTech respects and protects the privacy of website visitors, users, customers, client personnel, campaign participants, and other individuals whose personal data we process.</strong></p>
+                  <p>This Privacy Policy is intended to satisfy transparency requirements under applicable privacy and data-protection laws, including the Kingdom of Saudi Arabia Personal Data Protection Law issued by Royal Decree No. M/19, as amended by Royal Decree No. M/148, its Implementing Regulations, and the Regulation on Personal Data Transfer Outside the Kingdom (collectively, the “PDPL”).</p>
+                  <p>This Policy applies to personal data collected through <a href="https://jaltech.org/">jaltech.org</a>, JALTech applications and services, business communications, client projects, promotional platforms, and other authorised channels that link to or refer to this Policy.</p>
+                </div>
+
+                <section class="legal-section" id="roles">
+                  <h2><span class="section-number">01</span> JALTech’s Privacy Role</h2>
+                  <p>JALTech may process personal data in different capacities:</p>
+                  <ul>
+                    <li><strong>Data Controller:</strong> JALTech acts as the controller when it determines why and how personal data is processed, including for this website, enquiries, business relationships, recruitment, accounts, billing, security, analytics, and JALTech’s own services.</li>
+                    <li><strong>Data Processor:</strong> JALTech may act as a processor when it develops, hosts, supports, or operates an application, platform, digital campaign, or service on behalf of a client that determines the purposes and means of processing. In that situation, the client is generally the controller and its privacy notice also applies.</li>
+                  </ul>
+                  <div class="legal-callout">
+                    <i class="bi bi-info-circle" aria-hidden="true"></i>
+                    <p>Where JALTech processes personal data solely on a client’s documented instructions, requests relating to that data may need to be directed to, or coordinated with, the relevant client.</p>
+                  </div>
+                </section>
+
+                <section class="legal-section" id="definitions">
+                  <h2><span class="section-number">02</span> Key Definitions</h2>
+                  <div class="definition-grid">
+                    <dl class="definition-card">
+                      <dt>Personal Data</dt>
+                      <dd>Any data, regardless of its source or form, that identifies an individual directly or indirectly.</dd>
+                    </dl>
+                    <dl class="definition-card">
+                      <dt>Processing</dt>
+                      <dd>Any operation performed on personal data by automated or manual means, including collection, recording, storage, use, disclosure, transfer, alteration, retrieval, restriction, or destruction.</dd>
+                    </dl>
+                    <dl class="definition-card">
+                      <dt>Data Subject</dt>
+                      <dd>The individual to whom personal data relates, or their authorised representative or legal guardian where applicable.</dd>
+                    </dl>
+                    <dl class="definition-card">
+                      <dt>Sensitive Data</dt>
+                      <dd>Personal data classified as sensitive under applicable law, including certain health, genetic, biometric, religious, criminal, or financial-credit information.</dd>
+                    </dl>
+                  </div>
+                </section>
+
+                <section class="legal-section" id="data-collected">
+                  <h2><span class="section-number">03</span> Personal Data We Collect</h2>
+                  <p>The personal data collected depends on how you interact with JALTech and the service involved. We apply data-minimisation principles and seek to collect only data that is adequate, relevant, and necessary for a stated purpose.</p>
+                  <ul>
+                    <li><strong>Identity and contact data:</strong> name, username, company, job title, postal address, email address, telephone number, and other contact details.</li>
+                    <li><strong>Account and authentication data:</strong> account identifiers, login records, access rights, authentication events, and security information.</li>
+                    <li><strong>Business and project data:</strong> organisation details, project requirements, contracts, communications, support requests, meeting records, files, and other information provided during a business relationship.</li>
+                    <li><strong>Payment and transaction data:</strong> billing details, transaction references, payment status, and tax or accounting information. Payment-card information may be processed directly by an authorised payment provider rather than stored by JALTech.</li>
+                    <li><strong>Campaign and application data:</strong> registration information, eligibility data, receipt or document uploads, entries, preferences, responses, reward-delivery information, and other data required by a client-authorised service or campaign.</li>
+                    <li><strong>Technical and usage data:</strong> IP address, device identifiers, browser type, operating system, language, time zone, referring and exit pages, date and time, clickstream, application events, crash logs, and security logs.</li>
+                    <li><strong>Communications:</strong> messages, enquiries, feedback, attachments, and records of correspondence with JALTech.</li>
+                    <li><strong>Marketing preferences:</strong> consent records, subscription preferences, opt-outs, and communication choices.</li>
+                  </ul>
+                  <p>JALTech will not intentionally collect sensitive data unless it is necessary for a specific lawful purpose and the required legal basis, safeguards, notices, and explicit consent are in place.</p>
+                </section>
+
+                <section class="legal-section" id="collection">
+                  <h2><span class="section-number">04</span> How We Collect Personal Data</h2>
+                  <h3>Directly from you</h3>
+                  <p>We may collect personal data when you visit or use our website or applications, create an account, submit a form, contact us, attend a meeting, sign a contract, request support, participate in an authorised campaign, provide documents, apply for a role, or otherwise communicate with JALTech.</p>
+
+                  <h3>Automatically</h3>
+                  <p>We may collect technical, usage, security, and analytics information through server logs, cookies, software development kits, pixels, tags, and similar technologies when you access our websites, applications, or services.</p>
+
+                  <h3>From clients and authorised third parties</h3>
+                  <p>We may receive personal data from enterprise clients, business partners, service providers, identity or payment providers, event organisers, public sources, or other authorised parties where lawful and relevant to the service.</p>
+
+                  <h3>Mandatory and optional information</h3>
+                  <p>Fields marked as required are necessary to provide the requested service, fulfil a legal or contractual requirement, or protect the service. If required information is not provided, JALTech may be unable to process a request, provide a service, create an account, or complete a transaction. Optional fields may be left blank.</p>
+                </section>
+
+                <section class="legal-section" id="purposes">
+                  <h2><span class="section-number">05</span> Purposes and Legal Bases</h2>
+                  <p>JALTech processes personal data only for specific, clear, and lawful purposes. Depending on the context, the legal basis may be consent, performance of an agreement, compliance with a legal obligation, protection of a vital interest, a legitimate interest that does not override the data subject’s rights, or another basis permitted by the PDPL.</p>
+                  <ul>
+                    <li><strong>Providing services and performing agreements:</strong> to create and manage accounts, deliver software and professional services, operate applications or campaigns, process transactions, provide support, and fulfil contractual obligations.</li>
+                    <li><strong>Responding to enquiries:</strong> to communicate with you, answer questions, arrange meetings, prepare proposals, and manage business relationships.</li>
+                    <li><strong>Administration and records:</strong> to maintain financial, accounting, contractual, audit, and operational records.</li>
+                    <li><strong>Security and fraud prevention:</strong> to authenticate users, manage access, monitor systems, detect misuse, investigate incidents, prevent fraud, and protect individuals, JALTech, clients, and services.</li>
+                    <li><strong>Service improvement and analytics:</strong> to understand use, diagnose issues, measure performance, improve usability, develop features, and generate aggregated or anonymised insights.</li>
+                    <li><strong>Legal and regulatory compliance:</strong> to comply with applicable laws, lawful requests, court orders, regulatory duties, and the establishment, exercise, or defence of legal claims.</li>
+                    <li><strong>Direct marketing:</strong> to send promotional communications only where the required consent has been obtained. Each message will identify the sender and provide a simple, free method to withdraw consent or unsubscribe.</li>
+                  </ul>
+                  <div class="legal-callout">
+                    <i class="bi bi-check-circle" aria-hidden="true"></i>
+                    <p>Withdrawing consent does not affect processing already lawfully performed before withdrawal and does not prevent processing that continues under another lawful basis.</p>
+                  </div>
+                </section>
+
+                <section class="legal-section" id="cookies">
+                  <h2><span class="section-number">06</span> Cookies, Log Files, Analytics, and Crawlers</h2>
+                  <p>JALTech may use cookies and similar technologies that are strictly necessary for security, session management, preferences, functionality, performance, and analytics. Where required, non-essential cookies will be used only after consent is obtained.</p>
+                  <p>Server logs may record IP address, browser and device information, internet service provider, date and time, referring and exit pages, page interactions, and security events. This information is used to administer systems, detect threats, investigate faults, analyse trends, and understand aggregated usage.</p>
+                  <p>Public pages may be indexed by search engines such as Google, Bing, or DuckDuckGo. Analytics services, including Google Analytics or Google Tag technologies where enabled, may process technical and usage data according to their own privacy terms and JALTech’s configured controls.</p>
+                  <p>You may manage cookies through your browser or device settings. Disabling necessary cookies may prevent parts of a website or application from functioning correctly.</p>
+                </section>
+
+                <section class="legal-section" id="disclosure">
+                  <h2><span class="section-number">07</span> Disclosure and Sharing</h2>
+                  <p>JALTech does not sell personal data. Personal data may be disclosed only when lawful, necessary, and proportionate to the stated purpose, and only to the minimum extent required.</p>
+                  <ul>
+                    <li><strong>Clients:</strong> where JALTech operates a service or campaign for a client, relevant data may be made available to that client in accordance with the applicable agreement and privacy notice.</li>
+                    <li><strong>Authorised processors and service providers:</strong> cloud hosting, databases, communications, analytics, security, support, document storage, payment, reward fulfilment, and professional service providers that process data under appropriate contractual and confidentiality obligations.</li>
+                    <li><strong>Professional advisers:</strong> auditors, accountants, insurers, legal advisers, and consultants where necessary.</li>
+                    <li><strong>Corporate transactions:</strong> parties involved in a merger, acquisition, financing, reorganisation, or transfer of business, subject to lawful safeguards.</li>
+                    <li><strong>Authorities and legal recipients:</strong> regulators, courts, law-enforcement bodies, public authorities, or other recipients where disclosure is required or permitted by law.</li>
+                  </ul>
+                  <p>JALTech records and controls disclosures where required, evaluates recipient necessity, and requires recipients to protect personal data and use it only for authorised purposes.</p>
+                </section>
+
+                <section class="legal-section" id="transfers">
+                  <h2><span class="section-number">08</span> Data Storage, Hosting, and International Transfers</h2>
+                  <p>JALTech and its authorised providers may store and process personal data in the Kingdom of Saudi Arabia, Bahrain, Malaysia, or other approved locations depending on the service, client requirements, hosting architecture, and applicable data-residency obligations.</p>
+                  <p>Where personal data subject to the PDPL is transferred or disclosed outside the Kingdom of Saudi Arabia, JALTech will make the transfer only where permitted by the PDPL and the Regulation on Personal Data Transfer Outside the Kingdom. Appropriate safeguards may include an adequacy basis, an applicable exemption, approved standard contractual clauses, binding common rules, transfer risk assessments, contractual controls, data minimisation, encryption, and access restrictions.</p>
+                  <p>Information about the general geographical scope of processing may be requested through the contact channel below. Additional service-specific information may also be provided at the point of collection or in a client’s privacy notice.</p>
+                </section>
+
+                <section class="legal-section" id="retention">
+                  <h2><span class="section-number">09</span> Retention and Secure Destruction</h2>
+                  <p>JALTech retains personal data only for the period necessary to achieve the purpose for which it was collected, satisfy contractual and client instructions, maintain required business records, resolve disputes, enforce agreements, prevent fraud, and comply with legal or regulatory obligations.</p>
+                  <p>Retention periods are determined using criteria including the type and sensitivity of the data, the service or campaign duration, the client’s documented instructions, the limitation period for claims, security needs, and applicable laws.</p>
+                  <div class="legal-callout">
+                    <i class="bi bi-database-lock" aria-hidden="true"></i>
+                    <p>For client campaigns and activities, personal data is generally scheduled for secure deletion or irreversible anonymisation within <strong>30 days after completion of the relevant activity</strong>, unless the client, reward process, contract, dispute, investigation, or applicable law requires a longer period.</p>
+                  </div>
+                  <p>When retention is no longer required, JALTech securely destroys, deletes, overwrites, or anonymises personal data so that it cannot reasonably be reconstructed. Where deletion from backups cannot occur immediately, the data is isolated from further use and removed through the normal secure backup lifecycle.</p>
+                </section>
+
+                <section class="legal-section" id="security">
+                  <h2><span class="section-number">10</span> Security and Personal Data Breaches</h2>
+                  <p>JALTech applies reasonable and appropriate organisational, administrative, and technical measures proportionate to the nature, sensitivity, volume, and risks of the personal data processed. Measures may include:</p>
+                  <ul>
+                    <li>segregated application environments and databases where appropriate;</li>
+                    <li>encryption in transit using HTTPS/TLS and encryption at rest where supported;</li>
+                    <li>role-based access control, least-privilege access, authentication, and account-management controls;</li>
+                    <li>audit logging, monitoring, vulnerability management, backups, and recovery procedures;</li>
+                    <li>confidentiality obligations, personnel awareness, supplier due diligence, and contractual safeguards;</li>
+                    <li>incident response, containment, investigation, remediation, and lessons-learned procedures.</li>
+                  </ul>
+                  <p>If a personal data breach subject to the PDPL may harm personal data or a data subject, or conflict with their rights or interests, JALTech will notify the competent authority within the legally required period, including within 72 hours of awareness where applicable. Affected data subjects will be notified without undue delay when required by law.</p>
+                </section>
+
+                <section class="legal-section" id="rights">
+                  <h2><span class="section-number">11</span> Your Rights Under the PDPL</h2>
+                  <p>Subject to the PDPL, its exceptions, and verification of identity, data subjects may have the following rights:</p>
+                  <ul>
+                    <li><strong>Right to be informed:</strong> to know the legal basis and purpose of collection, the data collected, how it is processed, stored, destroyed, and disclosed, and whether it may be transferred outside the Kingdom.</li>
+                    <li><strong>Right of access:</strong> to access personal data held by JALTech where the applicable conditions are satisfied.</li>
+                    <li><strong>Right to obtain a copy:</strong> to receive personal data in a clear, readable, and commonly used format where technically feasible and legally permitted.</li>
+                    <li><strong>Right to correction:</strong> to request correction, completion, or updating of inaccurate, incomplete, or outdated personal data.</li>
+                    <li><strong>Right to destruction:</strong> to request destruction of personal data that is no longer necessary, where the legal conditions are met and no lawful retention requirement applies.</li>
+                    <li><strong>Right to withdraw consent:</strong> to withdraw consent at any time where consent is the basis for processing.</li>
+                    <li><strong>Right to complain:</strong> to submit a complaint concerning application of the PDPL to JALTech and, where appropriate, to the Saudi Data &amp; AI Authority (SDAIA).</li>
+                    <li><strong>Right to claim compensation:</strong> to seek compensation for material or moral harm resulting from a violation, as permitted by applicable law.</li>
+                  </ul>
+                  <p>These rights are not absolute and may be restricted where permitted or required by law, including to protect the rights of others, confidential information, legal claims, security, or regulatory obligations.</p>
+                </section>
+
+                <section class="legal-section" id="requests">
+                  <h2><span class="section-number">12</span> Exercising Your Rights</h2>
+                  <p>To exercise a privacy right, submit a request through the JALTech contact channel identified below and clearly state:</p>
+                  <ul>
+                    <li>your name and contact details;</li>
+                    <li>the service, website, application, client project, or campaign concerned;</li>
+                    <li>the right you wish to exercise and the personal data involved;</li>
+                    <li>any information reasonably needed to verify your identity and locate the relevant records.</li>
+                  </ul>
+                  <p>JALTech will act on a valid PDPL rights request without undue delay and normally within 30 days. Where implementation requires unexpected or disproportionate effort, or multiple requests are received, the period may be extended by up to an additional 30 days, and the requester will be informed of the extension and reasons.</p>
+                  <p>JALTech generally does not charge a fee for exercising PDPL rights. A request may be refused or limited where it is repetitive, manifestly unfounded, requires disproportionate effort, cannot be verified, or another lawful restriction applies. JALTech will provide the reason where legally required.</p>
+                </section>
+
+                <section class="legal-section" id="marketing">
+                  <h2><span class="section-number">13</span> Direct Marketing</h2>
+                  <p>JALTech will process personal data for direct marketing only after obtaining the consent required by law. At the time consent is requested, JALTech will identify the relevant data and marketing purpose.</p>
+                  <p>Every direct-marketing message will clearly identify JALTech and include a simple, fast, and free method to withdraw consent or unsubscribe. JALTech will maintain appropriate consent records and stop direct-marketing communications without undue delay after a valid opt-out.</p>
+                </section>
+
+                <section class="legal-section" id="children">
+                  <h2><span class="section-number">14</span> Children and Persons Lacking Legal Capacity</h2>
+                  <p>JALTech’s general business website and services are not directed to children. JALTech does not knowingly collect personal data from a child or a person who fully or partially lacks legal capacity without the involvement and legally valid authorisation of a parent, legal guardian, or authorised representative where required.</p>
+                  <p>If you believe that personal data has been provided without appropriate authorisation, contact JALTech so that the circumstances can be investigated and the data restricted or destroyed where required.</p>
+                </section>
+
+                <section class="legal-section" id="third-parties">
+                  <h2><span class="section-number">15</span> External Websites and Third-Party Services</h2>
+                  <p>JALTech websites and applications may link to external websites, social networks, payment providers, reward providers, or third-party services. JALTech does not control those parties’ independent processing activities. Their privacy notices apply when you interact directly with them.</p>
+                  <p>You should review the privacy information of each external service before providing personal data. A link does not imply that JALTech is responsible for the external service’s content, security, availability, or privacy practices.</p>
+                </section>
+
+                <section class="legal-section" id="updates">
+                  <h2><span class="section-number">16</span> Policy Updates</h2>
+                  <p>JALTech may update this Privacy Policy to reflect changes in law, regulatory guidance, technology, services, business operations, or data-processing practices. The revised Policy will be published on this page with an updated revision date.</p>
+                  <p>Where a material change requires additional notice or consent, JALTech will provide that notice or obtain consent through an appropriate channel before the new processing begins.</p>
+                </section>
+
+                <section class="legal-section" id="contact">
+                  <h2><span class="section-number">17</span> Contact, Privacy Requests, and Complaints</h2>
+                  <p>For privacy enquiries, consent withdrawal, rights requests, or complaints, contact the JALTech Privacy Team through the official contact channel below. Where JALTech is acting solely as a processor, your request may be referred to the relevant client controller.</p>
+                  <div class="legal-contact">
+                    <div>
+                      <strong class="d-block mb-1">JALTech Privacy Team</strong>
+                      <p>Website: <a href="https://jaltech.org/#contact">jaltech.org/#contact</a><br>
+                      Address: No. 16, Plaza Sentul 10, Jalan Sinar Sentul, Kuala Lumpur 51100, Malaysia</p>
+                    </div>
+                    <a class="btn" href="https://jaltech.org/#contact">
+                      Submit a Request <i class="bi bi-arrow-up-right ms-1"></i>
+                    </a>
+                  </div>
+
+                  <h3>Complaints to the Saudi authority</h3>
+                  <p>If your concern relates to personal data subject to the Saudi PDPL and you are not satisfied with JALTech’s response, you may submit a complaint to the Saudi Data &amp; AI Authority (SDAIA) through the National Data Governance Platform at <a href="https://dgp.sdaia.gov.sa/" target="_blank" rel="noopener noreferrer">dgp.sdaia.gov.sa</a>, subject to the procedures and time limits prescribed by law.</p>
+                </section>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= Footer ======= -->
+      <footer class="footer pt-5 pb-5">
+        <div class="container">
+          <div class="row align-items-center g-3">
+            <div class="col-lg-7 text-center text-lg-start">
+              &copy; <script>document.write(new Date().getFullYear());</script> JALTech | All rights reserved
+            </div>
+            <div class="col-lg-5">
+              <div class="legal-footer-links text-center text-lg-end">
+                <a href="index.html">Home</a>
+                <a href="#policy">Privacy Policy</a>
+                <a href="#rights">Privacy Rights</a>
+                <a href="https://jaltech.org/#contact">Contact</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- End Footer -->
+    </main>
+  </div>
+
+  <button id="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up-short"></i></button>
+
+  <!-- ======= JavaScripts used by the main JALTech website ======= -->
+  <script src="assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendors/aos/aos.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.AOS) {
+        AOS.init({ once: true, duration: 650, easing: "ease-out-cubic" });
+      }
+
+      document.querySelectorAll("#legal-nav a[href^='#']").forEach(function (link) {
+        link.addEventListener("click", function () {
+          const nav = document.getElementById("legal-nav");
+          if (nav && window.bootstrap) {
+            const instance = bootstrap.Offcanvas.getInstance(nav);
+            if (instance) instance.hide();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
