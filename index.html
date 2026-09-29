@@ -18,8 +18,15 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
+    <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&amp;family=Newsreader:opsz,wght@6..72,200..500&amp;display=swap">
+    <link rel="stylesheet" media="print" onload="this.media='all'"
+        href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&amp;family=Newsreader:opsz,wght@6..72,200..500&amp;display=swap">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&amp;family=Newsreader:opsz,wght@6..72,200..500&amp;display=swap">
+    </noscript>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
     <style>
         /* ==========================================================================
@@ -1429,22 +1436,34 @@
 
         .carousel-dots {
             display: flex;
-            gap: .5rem;
         }
 
         .carousel-dots button {
-            width: 8px;
-            height: 8px;
+            display: grid;
+            place-items: center;
+            min-width: 24px;
+            height: 24px;
             padding: 0;
             border: 0;
-            border-radius: var(--radius-round);
-            background: var(--border-03);
+            background: none;
             cursor: pointer;
         }
 
-        .carousel-dots button[aria-current="true"] {
+        .carousel-dots button::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: var(--radius-round);
+            background: var(--border-03);
+        }
+
+        .carousel-dots button[aria-current="true"]::before {
             background: var(--text-01);
             width: 24px;
+        }
+
+        .carousel-dots button[aria-current="true"] {
+            min-width: 32px;
         }
 
         /* ==========================================================================
@@ -2783,11 +2802,11 @@
             <div class="section-wrapper">
                 <h2 class="logo-carousel-header">Trusted by Almarai, Puteri and 4G Capital</h2>
                 <ul class="logo-strip">
-                    <li><img src="assets/images/logo/actual-size/almarai_logo-cropped.png" class="logo-almarai"
+                    <li><img src="assets/images/logo/actual-size/almarai_logo-cropped.png" width="200" height="129" class="logo-almarai"
                             alt="Almarai" loading="lazy"></li>
-                    <li><img src="assets/images/logo/actual-size/puteri-logo.png" class="logo-puteri" alt="Puteri"
+                    <li><img src="assets/images/logo/actual-size/puteri-logo.png" width="314" height="161" class="logo-puteri" alt="Puteri"
                             loading="lazy"></li>
-                    <li><img src="assets/images/logo/actual-size/4gcapital-logo.jpeg" class="logo-4gcapital"
+                    <li><img src="assets/images/logo/actual-size/4gcapital-logo.jpeg" width="400" height="79" class="logo-4gcapital"
                             alt="4G Capital" loading="lazy"></li>
                 </ul>
             </div>
@@ -3240,7 +3259,7 @@
                         <a class="text-link" href="#contact" rel="noopener noreferrer">Discuss your integrations →</a>
                     </div>
                     <div class="rotating-svg-icons">
-                        <img src="assets/images/jaltech-image.jpeg"
+                        <img src="assets/images/jaltech-image.jpeg" width="1200" height="800"
                             alt="Race car with JALTech sponsorship livery on track" loading="lazy">
                     </div>
                 </div>
@@ -3272,11 +3291,11 @@
                 <div class="tabs" data-tabs>
                     <div class="tabs-control">
                         <ul class="tab-list" role="tablist" aria-label="Engagement models">
-                            <li class="tab-item"><button class="tab-button" role="tab" aria-selected="true"
+                            <li class="tab-item" role="presentation"><button class="tab-button" role="tab" aria-selected="true"
                                     aria-controls="tt-1" id="engagement-tab-1">Project-based</button></li>
-                            <li class="tab-item"><button class="tab-button" role="tab" aria-selected="false"
+                            <li class="tab-item" role="presentation"><button class="tab-button" role="tab" aria-selected="false"
                                     aria-controls="tt-2" id="engagement-tab-2">Dedicated team</button></li>
-                            <li class="tab-item"><button class="tab-button" role="tab" aria-selected="false"
+                            <li class="tab-item" role="presentation"><button class="tab-button" role="tab" aria-selected="false"
                                     aria-controls="tt-3" id="engagement-tab-3">Ongoing partnership</button></li>
                         </ul>
                     </div>

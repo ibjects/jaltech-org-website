@@ -1,0 +1,20 @@
+# JALTech
+
+> JALTech is a software house specializing in FMCG (fast-moving consumer goods). We build custom internal software, Android sales apps connected to inventory, distributor portals and consumer campaign platforms, and we deliver mall stalls and interactive brand activations.
+
+Clients include Almarai, Puteri and 4G Capital. Contact: comm@ibjects.com
+
+## Pages
+
+- [Home](https://jaltech.org/): FMCG solutions, software services, brand activations, engagement models and FAQs
+- [Privacy Policy](https://jaltech.org/privacy.html): How JALTech collects, uses and protects personal data (Saudi PDPL aligned)
+
+## Services
+
+- [Consumer Promotions](https://jaltech.org/#consumer-promotions): Scan-and-win, loyalty and campaign platforms
+- [Internal Sales & Inventory Apps](https://jaltech.org/#field-sales): Custom Android apps for sales teams connected to inventory
+- [Custom Internal Solutions](https://jaltech.org/#enterprise-software): HR, finance, operations, approvals and MIT apps
+- [Brand Activations](https://jaltech.org/#brand-activations): Mall stalls, pop-ups and interactive consumer experiences
+- [Mobile App Development](https://jaltech.org/#mobile-apps): iOS, Android and cross-platform apps
+- [Web Development](https://jaltech.org/#web-development): Websites, portals and web applications
+- [DevOps & Cloud Solutions](https://jaltech.org/#devops-cloud): Cloud infrastructure, deployments and support

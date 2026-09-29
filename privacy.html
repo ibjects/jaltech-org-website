@@ -7,16 +7,19 @@
   <meta name="description" content="JALTech Privacy Policy describing how personal data is collected, used, disclosed, secured, retained, transferred, and protected in accordance with applicable privacy laws, including the Saudi Personal Data Protection Law (PDPL).">
   <meta name="robots" content="index, follow">
   <title>Privacy Policy | JALTech</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
   <!-- ======= Google Font ======= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap"></noscript>
 
   <!-- ======= Styles used by the main JALTech website ======= -->
   <link href="assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendors/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="assets/vendors/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendors/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="assets/vendors/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet"></noscript>
   <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- ======= Page-specific legal document styles ======= -->
@@ -44,6 +47,14 @@
       line-height: 1.75;
     }
 
+    /* reserve icon space so the icon font loading doesn't shift layout */
+    .bi {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1;
+    }
+
     .legal-header.fbs__net-navbar {
       position: sticky;
       top: 0;
@@ -61,24 +72,16 @@
       padding: 9.5rem 0 5.75rem;
       color: #ffffff;
       background:
+        /* decorative rings (drawn as a background so they never cause layout shift) */
+        radial-gradient(circle at calc(100% - 85px) calc(100% - 25px),
+          transparent 214px,
+          rgba(255, 255, 255, 0.16) 214px 215px,
+          rgba(255, 255, 255, 0.035) 215px 263px,
+          rgba(255, 255, 255, 0.025) 263px 311px,
+          transparent 311px),
         radial-gradient(circle at 88% 15%, rgba(255, 255, 255, 0.15), transparent 26%),
         radial-gradient(circle at 8% 90%, rgba(92, 214, 170, 0.2), transparent 28%),
         linear-gradient(135deg, var(--legal-hero), #174b40 72%, #1c5f4f);
-    }
-
-    .legal-hero::after {
-      content: "";
-      position: absolute;
-      right: -130px;
-      bottom: -190px;
-      width: 430px;
-      height: 430px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 50%;
-      box-shadow:
-        0 0 0 48px rgba(255, 255, 255, 0.035),
-        0 0 0 96px rgba(255, 255, 255, 0.025);
-      pointer-events: none;
     }
 
     .legal-eyebrow {
@@ -484,16 +487,16 @@
     <header class="legal-header fbs__net-navbar navbar navbar-expand-lg dark" aria-label="JALTech navigation">
       <div class="container d-flex align-items-center justify-content-between">
         <a class="navbar-brand w-auto" href="index.html" aria-label="JALTech home">
-          <img class="logo dark img-fluid" src="assets/images/logo-dark.svg" alt="JALTech">
-          <img class="logo light img-fluid" src="assets/images/logo-light.svg" alt="JALTech">
+          <img class="logo dark img-fluid" src="assets/images/logo-dark.svg" alt="JALTech" width="104" height="38">
+          <img class="logo light img-fluid" src="assets/images/logo-light.svg" alt="JALTech" width="104" height="38">
         </a>
 
         <div class="offcanvas offcanvas-start w-75" id="legal-nav" tabindex="-1" aria-labelledby="legal-nav-label">
           <div class="offcanvas-header">
             <div class="offcanvas-header-logo">
               <a class="logo-link" id="legal-nav-label" href="index.html">
-                <img class="logo dark img-fluid" src="assets/images/logo-dark.svg" alt="JALTech">
-                <img class="logo light img-fluid" src="assets/images/logo-light.svg" alt="JALTech">
+                <img class="logo dark img-fluid" src="assets/images/logo-dark.svg" alt="JALTech" width="104" height="38">
+                <img class="logo light img-fluid" src="assets/images/logo-light.svg" alt="JALTech" width="104" height="38">
               </a>
             </div>
             <button class="btn-close btn-close-black" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -823,7 +826,6 @@
 
   <!-- ======= JavaScripts used by the main JALTech website ======= -->
   <script src="assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendors/aos/aos.js"></script>
   <script src="assets/js/custom.js"></script>
 
   <script>

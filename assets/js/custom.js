@@ -238,6 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // ======= Swiper =======
 const swiperInit = () => {
+  if (typeof Swiper === "undefined") return;
   var swiper = new Swiper(".testimonialSwiper", {
     slidesPerView: 1,
     speed: 700,
@@ -304,6 +305,7 @@ document.addEventListener("DOMContentLoaded", swiperInit);
 
 // ======= Glightbox =======
 const glightBoxInit = () => {
+  if (typeof GLightbox === "undefined") return;
   const lightbox = GLightbox({
     touchNavigation: true,
     loop: true,
@@ -389,6 +391,7 @@ document.addEventListener("DOMContentLoaded", inlineSvgInit);
 
 // ======= AOS =======
 const aosInit = () => {
+  if (typeof AOS === "undefined") return;
   AOS.init({
     duration: 800,
     easing: 'slide',
@@ -399,6 +402,7 @@ document.addEventListener("DOMContentLoaded", aosInit);
 
 // ======= PureCounter =======
 const pureCounterInit = () => {
+  if (typeof PureCounter === "undefined") return;
   new PureCounter({
     selector: ".purecounter",
   });
