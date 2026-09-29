@@ -2,1028 +2,3631 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> JALTech - Full-Service Software Engineering</title>
+    <meta name="color-scheme" content="light">
+    <!-- Deployment: canonical domain is https://jaltech.org/.
+         Serve this file as the public home page with HTTP 200.
+         Check /robots.txt and CDN/firewall rules allow Googlebot, Bingbot and
+         OAI-SearchBot. HTML metadata cannot override host-level crawler blocks.
+         Submit the canonical URL in Search Console after deployment.
+         Contact address follows the supplied backup.html: comm@ibjects.com.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JALTech | FMCG Software Solutions &amp; Brand Activations</title>
+    <meta name="description"
+        content="JALTech builds custom FMCG software, consumer campaigns, field sales apps and brand activations. Trusted by Almarai, Puteri and 4G Capital. Explore our services.">
 
-  <!-- ======= Google Font =======-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
-  <!-- End Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&amp;family=Newsreader:opsz,wght@6..72,200..500&amp;display=swap">
 
-  <!-- ======= Styles =======-->
-  <link href="assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendors/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="assets/vendors/glightbox/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendors/aos/aos.css" rel="stylesheet">
-  <!-- End Styles-->
+    <style>
+        /* ==========================================================================
+           Design tokens (JALTech design system)
+           ========================================================================== */
+        :root {
+            /* brand */
+            --brand: #1B2241;
+            --brand-hover: #303957;
+            --brand-pressed: #11172E;
 
-  <!-- ======= Theme Style =======-->
-  <link href="assets/css/style.css" rel="stylesheet">
-  <!-- End Theme Style-->
+            /* light theme surfaces */
+            --bg-01: #ffffff;
+            --bg-02: #f4f5f6;
+            --container-01: #ffffff;
+            --container-02: rgba(255, 255, 255, .459);
 
-  <!-- ======= Apply theme =======-->
-  <script>
-    // Apply the theme as early as possible to avoid flicker
-    (function () {
-      const storedTheme = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-bs-theme', storedTheme);
-    })();
-  </script>
+            /* light theme ink */
+            --text-01: #1f1f1f;
+            --text-02: rgba(0, 0, 0, .62);
+            --text-on-color: #ffffff;
+
+            /* light theme lines */
+            --border-01: #1f1f1f;
+            --border-03: rgba(0, 0, 0, .11);
+            --divider-01: rgba(0, 0, 0, .11);
+            --hover-01: rgba(0, 0, 0, .051);
+            --focus-01: #1B2241;
+
+            /* dark theme */
+            --dark-bg-01: #1B2241;
+            --dark-container-01: #151B34;
+            --dark-text-01: #f4f5f6;
+            --dark-text-02: rgba(255, 255, 255, .62);
+            --dark-border-03: rgba(255, 255, 255, .08);
+            --footer-bg: #1f1f1f;
+
+            /* accents */
+            --accent-fill-02: #C7E5C6;
+            --accent-fill-04: #C7E5C6;
+            --accent-fill-05: #e9ecef;
+            --accent-fill-06: #C7E5C6;
+            --accent-fill-07: #C7E5C6;
+            --accent-fill-08: #e9ecef;
+
+            /* radii */
+            --radius-container: 16px;
+            --radius-medium: 8px;
+            --radius-small: 4px;
+            --radius-round: 9999px;
+
+            /* type */
+            --font-sans: 'Figtree', 'Arial', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-serif: 'Newsreader', 'Georgia', Georgia, 'Times New Roman', serif;
+
+            /* layout */
+            --content-max-width: 1080px;
+            --nav-height: 56px;
+        }
+
+        @media (width >=1080px) {
+            :root {
+                --nav-height: 128px;
+            }
+        }
+
+        /* ==========================================================================
+           Reset / base
+           ========================================================================== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg-01);
+            color: var(--text-01);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button {
+            font: inherit;
+            color: inherit;
+        }
+
+        a {
+            color: var(--text-01);
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        hr {
+            border: none;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--focus-01);
+            outline-offset: 2px;
+        }
+
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* ==========================================================================
+           Typography scale
+           ========================================================================== */
+        .h1,
+        .h2 {
+            font-family: var(--font-serif);
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .h3,
+        .h4,
+        .h5,
+        .h6 {
+            font-family: var(--font-sans);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .h1 {
+            font-size: 2.5rem;
+            line-height: 1.1538;
+        }
+
+        .h2 {
+            font-size: 2rem;
+            line-height: 1.125;
+        }
+
+        .h3 {
+            font-size: 1.5rem;
+            line-height: 1.4167;
+        }
+
+        .h4 {
+            font-size: 1.375rem;
+            line-height: 1.4545;
+        }
+
+        .h5 {
+            font-size: 1.125rem;
+            line-height: 1.5556;
+        }
+
+        .h6 {
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        @media (width >=600px) {
+            .h1 {
+                font-size: 3rem;
+                line-height: 1.0455;
+            }
+
+            .h2 {
+                font-size: 2.5rem;
+                line-height: 1.1;
+            }
+        }
+
+        .p-large {
+            font-size: 1.125rem;
+            line-height: 1.7778;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .p-medium {
+            font-size: 1rem;
+            line-height: 1.75;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .p-small {
+            font-size: .875rem;
+            line-height: 1.5714;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .microheading {
+            font-size: .875rem;
+            line-height: 1.5714;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin: 0 0 .5rem;
+        }
+
+        .microcopy {
+            font-size: .75rem;
+            font-weight: 500;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .brand-text {
+            color: var(--brand);
+        }
+
+        /* ==========================================================================
+           Buttons / links
+           ========================================================================== */
+        .btn {
+            display: inline-block;
+            border-radius: var(--radius-medium);
+            border: 2px solid transparent;
+            padding: .75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.75;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color .15s linear, color .15s linear, border-color .15s linear;
+        }
+
+        .btn.-large {
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            line-height: 1.7778;
+        }
+
+        .btn.-small {
+            padding: .5rem 1rem;
+            font-size: .875rem;
+            line-height: 1.5714;
+        }
+
+        .btn.-primary {
+            background: var(--brand);
+            color: #fff;
+        }
+
+        .btn.-primary:hover {
+            background: var(--brand-hover);
+        }
+
+        .btn.-primary:active {
+            background: var(--brand-pressed);
+        }
+
+        .btn.-secondary {
+            background: #fff;
+            border-color: var(--brand);
+            color: var(--brand);
+        }
+
+        .btn.-secondary:hover {
+            background: #e8f2e8;
+            border-color: var(--brand-hover);
+            color: var(--brand-hover);
+        }
+
+        .btn.-tertiary {
+            background: var(--text-01);
+            color: #fff;
+        }
+
+        .btn.-tertiary-outline {
+            background: transparent;
+            border-color: var(--border-01);
+            color: var(--text-01);
+        }
+
+        .btn.-tertiary-outline:hover {
+            background: var(--hover-01);
+        }
+
+        .text-link {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-weight: 500;
+            color: var(--text-01);
+            text-decoration: underline;
+            text-decoration-color: var(--brand);
+            text-underline-offset: 2px;
+            transition: text-underline-offset .3s ease-in-out;
+            background: none;
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .text-link:hover {
+            text-underline-offset: 4px;
+        }
+
+        .text-link.-small {
+            font-size: .875rem;
+            line-height: 1.5714;
+        }
+
+        .text-link .icon {
+            width: 1em;
+            height: 1em;
+            flex: 0 0 auto;
+        }
+
+        .text-link.-arrow .icon {
+            transition: transform .2s ease-in-out;
+        }
+
+        .text-link.-arrow:hover .icon {
+            transform: translateX(5px);
+        }
+
+        .tagline {
+            display: inline-flex;
+            align-items: center;
+            gap: .375rem;
+            background: var(--container-01);
+            border: 1px solid var(--border-03);
+            border-radius: var(--radius-small);
+            padding: .25rem .5rem;
+            font-size: .875rem;
+            font-weight: 500;
+            line-height: 1.5714;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .tagline .icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .round-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-round);
+            border: 1px solid var(--border-01);
+            background: var(--container-01);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color .15s linear;
+        }
+
+        .round-btn:hover {
+            background: var(--hover-01);
+        }
+
+        .round-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ==========================================================================
+           Section shell
+           ========================================================================== */
+        .section {
+            position: relative;
+            background: var(--bg-01);
+        }
+
+        .section.-bg-02 {
+            background: var(--bg-02);
+        }
+
+        .section-wrapper {
+            width: 100%;
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+            padding: 40px 1rem;
+        }
+
+        @media (width >=1080px) {
+            .section-wrapper {
+                padding: 64px 0;
+            }
+        }
+
+        .section.-pad-sm>.section-wrapper {
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+
+        .section.-pad-bottom-lg>.section-wrapper {
+            padding-bottom: 64px;
+        }
+
+        @media (width >=1080px) {
+            .section.-pad-sm>.section-wrapper {
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
+
+            .section.-pad-bottom-lg>.section-wrapper {
+                padding-bottom: 96px;
+            }
+        }
+
+        .card {
+            background: var(--container-01);
+            border-radius: var(--radius-container);
+            position: relative;
+        }
+
+        .card.-border {
+            border: 1px solid var(--border-03);
+        }
+
+        .card.-hoverable {
+            transition: background-color .15s linear, box-shadow .15s linear;
+        }
+
+        .card.-hoverable:hover {
+            background: #f5f5f5;
+            box-shadow: 0 0 0 1px var(--border-03);
+        }
+
+        /* ==========================================================================
+           Flexible section header
+           ========================================================================== */
+        .fsh {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .fsh-top {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        @media (width >=600px) {
+            .fsh-top {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .fsh-tagline-wrapper {
+            display: flex;
+            flex: 1 0 auto;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .fsh-line {
+            display: block;
+            width: 100%;
+            height: 1px;
+            border-top: 1px dashed var(--border-01);
+            opacity: .35;
+        }
+
+        .fsh-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        @media (width >=600px) {
+            .fsh-bottom.-row {
+                flex-direction: row;
+            }
+
+            .fsh-bottom.-row .fsh-heading,
+            .fsh-bottom.-row .fsh-description {
+                max-width: 436px;
+            }
+        }
+
+        @media (width >=1080px) {
+            .fsh-bottom.-row {
+                justify-content: space-between;
+            }
+        }
+
+        .fsh-bottom.-row .fsh-heading {
+            flex: 11;
+        }
+
+        .fsh-bottom.-row .fsh-description {
+            flex: 9;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* ==========================================================================
+           Global nav — utility bar
+           ========================================================================== */
+        .global-nav-header {
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            background: var(--container-01);
+        }
+
+        /* on desktop the utility bar scrolls away and the main bar stays pinned */
+        @media (width >=1080px) {
+            .global-nav-header {
+                top: -52px;
+            }
+        }
+
+        .nav-content {
+            width: 100%;
+            max-width: var(--content-max-width);
+            margin-inline: auto;
+            padding-inline: 1rem;
+        }
+
+        @media (width >=1080px) {
+            .nav-content {
+                padding-inline: 0;
+            }
+        }
+
+        .nav-top-bar {
+            display: none;
+            border-bottom: 1px solid var(--divider-01);
+            background: var(--container-01);
+        }
+
+        @media (width >=1080px) {
+            .nav-top-bar {
+                display: block;
+            }
+        }
+
+        .nav-top-bar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 52px;
+        }
+
+        .nav-top-bar-group {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .nav-utility-link {
+            display: inline-flex;
+            align-items: center;
+            gap: .375rem;
+            font-size: .75rem;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--text-01);
+            text-decoration: none;
+            background: none;
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .nav-utility-link:hover {
+            text-decoration: underline;
+            text-decoration-color: var(--brand);
+            text-underline-offset: 3px;
+        }
+
+        .nav-utility-link svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .nav-utility-item {
+            position: relative;
+        }
+
+        .nav-utility-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            min-width: 180px;
+            background: var(--container-01);
+            border: 1px solid var(--border-03);
+            border-radius: var(--radius-medium);
+            box-shadow: 0 1px 24px rgba(33, 51, 67, .12);
+            padding: .5rem 0;
+            display: none;
+            z-index: 70;
+        }
+
+        .nav-utility-item:hover .nav-utility-menu,
+        .nav-utility-item:focus-within .nav-utility-menu {
+            display: block;
+        }
+
+        .nav-utility-menu a {
+            display: block;
+            padding: .375rem 1rem;
+            font-size: .875rem;
+            font-weight: 300;
+            text-decoration: none;
+            color: var(--text-01);
+        }
+
+        .nav-utility-menu a:hover {
+            background: var(--hover-01);
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            border: 1px solid var(--border-03);
+            border-radius: var(--radius-small);
+            padding: .25rem .5rem;
+            background: var(--container-01);
+        }
+
+        .nav-search input {
+            border: 0;
+            outline: 0;
+            font: inherit;
+            font-size: .75rem;
+            font-weight: 300;
+            width: 130px;
+            background: transparent;
+        }
+
+        .nav-search svg {
+            width: 14px;
+            height: 14px;
+            flex: 0 0 auto;
+            opacity: .7;
+        }
+
+        /* ==========================================================================
+           Global nav — main bar
+           ========================================================================== */
+        .nav-main {
+            background: var(--container-01);
+            position: static;
+            box-shadow: 0 2px 4px rgba(33, 51, 67, .12);
+        }
+
+        @media (width >=1080px) {
+            .nav-main {
+                box-shadow: none;
+            }
+
+            .nav-main.-stuck {
+                box-shadow: 0 2px 4px rgba(33, 51, 67, .12);
+            }
+        }
+
+        .nav-main-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            height: 56px;
+        }
+
+        @media (width >=1080px) {
+            .nav-main-inner {
+                height: 76px;
+            }
+        }
+
+        .nav-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            text-decoration: none;
+            color: var(--brand);
+            flex: 0 0 auto;
+        }
+
+        .nav-logo svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .nav-logo span {
+            font-family: var(--font-sans);
+            font-size: 1.375rem;
+            font-weight: 600;
+            letter-spacing: -.01em;
+            color: var(--brand);
+        }
+
+        .nav-tab-list {
+            display: none;
+            align-items: center;
+            gap: .25rem;
+        }
+
+        @media (width >=1080px) {
+            .nav-tab-list {
+                display: flex;
+            }
+        }
+
+        .nav-tab-wrapper {
+            position: static;
+        }
+
+        .nav-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: .25rem;
+            padding: .5rem .75rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-01);
+            text-decoration: none;
+            background: none;
+            border: 0;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .nav-tab svg {
+            width: 12px;
+            height: 12px;
+            transition: transform .2s ease;
+        }
+
+        .nav-tab-wrapper:hover .nav-tab,
+        .nav-tab-wrapper:focus-within .nav-tab {
+            border-bottom-color: var(--brand);
+        }
+
+        .nav-tab-wrapper:hover .nav-tab svg,
+        .nav-tab-wrapper:focus-within .nav-tab svg {
+            transform: rotate(180deg);
+        }
+
+        .nav-ctas {
+            display: none;
+            align-items: center;
+            gap: .75rem;
+            flex: 0 0 auto;
+        }
+
+        @media (width >=1080px) {
+            .nav-ctas {
+                display: flex;
+            }
+        }
+
+        /* mega dropdown */
+        .nav-dropdown {
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+            width: calc(100% - 1.25rem);
+            max-width: 1400px;
+            display: none;
+            z-index: 65;
+        }
+
+        .nav-tab-wrapper:hover .nav-dropdown,
+        .nav-tab-wrapper:focus-within .nav-dropdown {
+            display: block;
+        }
+
+        .nav-dropdown-inner {
+            background: var(--container-01);
+            border: 1px solid var(--border-03);
+            border-radius: 0 0 .1875rem .1875rem;
+            box-shadow: 0 1px 24px rgba(33, 51, 67, .12);
+            padding: 1.5rem;
+            max-height: calc(100vh - var(--nav-height));
+            overflow-y: auto;
+        }
+
+        .nav-banner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .nav-banner-title {
+            font-size: 1.375rem;
+            font-weight: 500;
+            margin: 0 0 .25rem;
+        }
+
+        .nav-banner-desc {
+            font-size: .875rem;
+            font-weight: 300;
+            color: var(--text-02);
+            margin: 0;
+            max-width: 460px;
+        }
+
+        .nav-banner-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+        }
+
+        .nav-banner-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .625rem 1rem;
+            border: 1px solid var(--border-03);
+            border-radius: var(--radius-medium);
+            font-size: .875rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text-01);
+            background: var(--bg-02);
+        }
+
+        .nav-banner-cta:hover {
+            background: var(--accent-fill-02);
+        }
+
+        .nav-banner-cta .dot {
+            width: 20px;
+            height: 20px;
+            border-radius: var(--radius-round);
+            background: var(--brand);
+            display: inline-block;
+            flex: 0 0 auto;
+        }
+
+        .nav-divider {
+            height: 1px;
+            background: var(--divider-01);
+            margin: 1.25rem 0;
+        }
+
+        .nav-card-grid {
+            display: grid;
+            gap: 1rem 1.5rem;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .nav-card-grid.-cols-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .nav-card {
+            display: flex;
+            gap: .75rem;
+            padding: .5rem;
+            border-radius: var(--radius-medium);
+        }
+
+        .nav-card:hover {
+            background: var(--hover-01);
+        }
+
+        .nav-card-icon {
+            width: 24px;
+            height: 24px;
+            flex: 0 0 auto;
+            border-radius: 6px;
+            background: var(--accent-fill-02);
+            display: grid;
+            place-items: center;
+        }
+
+        .nav-card-icon svg {
+            width: 14px;
+            height: 14px;
+            color: var(--brand);
+        }
+
+        .nav-card-title {
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .nav-card-title a {
+            text-decoration: none;
+            color: var(--text-01);
+        }
+
+        .nav-card-desc {
+            font-size: .8125rem;
+            font-weight: 300;
+            line-height: 1.5;
+            color: var(--text-02);
+            margin: .125rem 0 .25rem;
+        }
+
+        .nav-card-link {
+            font-size: .8125rem;
+            font-weight: 500;
+            color: var(--text-01);
+            text-decoration: underline;
+            text-decoration-color: var(--brand);
+            text-underline-offset: 2px;
+        }
+
+        /* solutions sidebar layout */
+        .nav-sidebar {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-sidebar-list {
+            flex: 0 0 220px;
+            border-right: 1px solid var(--divider-01);
+            padding-right: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+        }
+
+        .nav-sidebar-btn {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: 0;
+            border-radius: var(--radius-medium);
+            padding: .625rem .75rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .nav-sidebar-btn:hover {
+            background: var(--hover-01);
+        }
+
+        .nav-sidebar-btn[aria-selected="true"] {
+            background: var(--bg-02);
+            color: var(--brand);
+        }
+
+        .nav-sidebar-panel {
+            flex: 1;
+        }
+
+        .nav-sidebar-panel[hidden] {
+            display: none;
+        }
+
+        .nav-sublinks-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .nav-sublinks-title {
+            font-size: .875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: .02em;
+            margin: 0 0 .5rem;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .nav-sublinks-title .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: var(--radius-round);
+            background: var(--brand);
+        }
+
+        .nav-simple-cols {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .nav-simple-cols h3 {
+            font-size: .875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin: 0 0 .5rem;
+        }
+
+        .nav-simple-cols li a {
+            display: block;
+            padding: .25rem 0;
+            font-size: .875rem;
+            font-weight: 300;
+            color: var(--text-01);
+            text-decoration: none;
+        }
+
+        .nav-simple-cols li a:hover {
+            text-decoration: underline;
+            text-decoration-color: var(--brand);
+            text-underline-offset: 3px;
+        }
+
+        /* mobile burger */
+        .nav-burger {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 0;
+            background: none;
+            cursor: pointer;
+        }
+
+        @media (width >=1080px) {
+            .nav-burger {
+                display: none;
+            }
+        }
+
+        .nav-burger svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .nav-mobile {
+            display: none;
+            border-top: 1px solid var(--divider-01);
+            background: var(--container-01);
+            padding: 1rem;
+        }
+
+        .nav-mobile.-open {
+            display: block;
+        }
+
+        @media (width >=1080px) {
+            .nav-mobile.-open {
+                display: none;
+            }
+        }
+
+        .nav-mobile a {
+            display: block;
+            padding: .625rem 0;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid var(--divider-01);
+        }
+
+        .nav-mobile .cta-group {
+            margin-top: 1rem;
+        }
+
+        .nav-mobile .btn {
+            flex: 1;
+        }
+
+        /* ==========================================================================
+           Hero / page header
+           ========================================================================== */
+        .page-header {
+            position: relative;
+            width: 100%;
+            min-height: calc(100dvh - var(--nav-height));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-bg-01);
+            overflow: hidden;
+        }
+
+        .page-header-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .page-header-bg img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .page-header-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4));
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: var(--content-max-width);
+            margin-inline: auto;
+            padding: 4rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--dark-text-01);
+        }
+
+        .page-header-tagline {
+            font-size: .875rem;
+            font-weight: 500;
+            line-height: 1.5714;
+            text-transform: uppercase;
+            margin: 0 0 .5rem;
+        }
+
+        .page-header-heading {
+            font-family: var(--font-serif);
+            font-weight: 300;
+            font-size: 48px;
+            line-height: 55px;
+            margin: 0 0 1.5rem;
+            max-width: 15ch;
+        }
+
+        @media (width >=600px) {
+            .page-header-heading {
+                font-size: 80px;
+                line-height: 95px;
+                max-width: none;
+            }
+        }
+
+        .page-header-heading .-break {
+            display: inline;
+        }
+
+        @media (width >=900px) {
+            .page-header-heading .-break {
+                display: block;
+            }
+        }
+
+        .rotator {
+            display: inline-block;
+            height: 55px;
+            overflow: hidden;
+            vertical-align: bottom;
+        }
+
+        @media (width >=600px) {
+            .rotator {
+                height: 95px;
+            }
+        }
+
+        .rotator ul {
+            animation: rotate-words 10s cubic-bezier(.6, .05, .3, .95) infinite;
+        }
+
+        .rotator li {
+            height: 55px;
+            line-height: 55px;
+            color: var(--brand);
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        @media (width >=600px) {
+            .rotator li {
+                height: 95px;
+                line-height: 95px;
+            }
+        }
+
+        @keyframes rotate-words {
+
+            0%,
+            16% {
+                transform: translateY(0);
+            }
+
+            20%,
+            36% {
+                transform: translateY(-100%);
+            }
+
+            40%,
+            56% {
+                transform: translateY(-200%);
+            }
+
+            60%,
+            76% {
+                transform: translateY(-300%);
+            }
+
+            80%,
+            100% {
+                transform: translateY(-400%);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .rotator ul {
+                animation: none;
+            }
+        }
+
+        .page-header-description {
+            font-size: 1.125rem;
+            line-height: 1.7778;
+            font-weight: 300;
+            margin: 0;
+            max-width: 60ch;
+        }
+
+        .page-header-ctas {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            width: 100%;
+        }
+
+        .page-header-ctas .btn {
+            width: 100%;
+        }
+
+        @media (width >=600px) {
+            .page-header-ctas {
+                flex-direction: row;
+                justify-content: center;
+                width: auto;
+            }
+
+            .page-header-ctas .btn {
+                width: auto;
+            }
+        }
+
+        /* ==========================================================================
+           Logo carousel
+           ========================================================================== */
+        .logo-carousel-header {
+            text-align: center;
+            margin: 0 0 2rem;
+            font-family: var(--font-sans);
+            font-size: 1.375rem;
+            font-weight: 500;
+            line-height: 1.4545;
+        }
+
+        .logo-strip {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            align-items: center;
+        }
+
+        @media (width >=600px) {
+            .logo-strip {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (width >=900px) {
+            .logo-strip {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 30px;
+            }
+        }
+
+        .logo-strip img {
+            width: 100%;
+            max-width: 161px;
+            height: 56px;
+            object-fit: cover;
+            margin-inline: auto;
+            filter: grayscale(1);
+            opacity: .75;
+            border-radius: 4px;
+        }
+
+        /* ==========================================================================
+           Customer platform carousel
+           ========================================================================== */
+        .cp-header {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        @media (width >=600px) {
+            .cp-header {
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        .cp-header .h1 {
+            margin: 0;
+        }
+
+        .cp-header p {
+            margin: 0;
+            max-width: 60ch;
+        }
+
+        .cp-carousel {
+            margin-top: 2.5rem;
+            position: relative;
+        }
+
+        .cp-slide {
+            display: none;
+            flex-direction: column;
+        }
+
+        .cp-slide.-active {
+            display: flex;
+        }
+
+        @media (width >=900px) {
+            .cp-slide.-active {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                column-gap: 1.5rem;
+                align-items: center;
+                text-align: left;
+            }
+        }
+
+        .cp-slide-image {
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        .cp-slide-image img {
+            width: 100%;
+            max-width: 708px;
+            height: auto;
+            border-radius: var(--radius-container);
+        }
+
+        @media (width >=900px) {
+            .cp-slide-image {
+                order: 1;
+                margin-bottom: 0;
+            }
+        }
+
+        .cp-slide-body .h2 {
+            margin: 0 0 1rem;
+        }
+
+        .cp-slide-body p {
+            margin: 0;
+            color: var(--text-01);
+        }
+
+        .carousel-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding-top: 2rem;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: .5rem;
+        }
+
+        .carousel-dots button {
+            width: 8px;
+            height: 8px;
+            padding: 0;
+            border: 0;
+            border-radius: var(--radius-round);
+            background: var(--border-03);
+            cursor: pointer;
+        }
+
+        .carousel-dots button[aria-current="true"] {
+            background: var(--text-01);
+            width: 24px;
+        }
+
+        /* ==========================================================================
+           Product platform
+           ========================================================================== */
+        .pp-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            row-gap: 1.5rem;
+        }
+
+        @media (width >=900px) {
+            .pp-container {
+                grid-template-columns: 1fr 2fr;
+                column-gap: 1.5rem;
+                align-items: start;
+            }
+        }
+
+        .pp-main {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background: var(--bg-01);
+        }
+
+        @media (width >=900px) {
+            .pp-main {
+                position: sticky;
+                top: calc(76px + 2rem);
+                height: fit-content;
+                padding-bottom: 1rem;
+                z-index: 1;
+            }
+        }
+
+        .pp-main .cta-group {
+            margin: 1rem 0;
+        }
+
+        .pp-cards {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        @media (width >=600px) {
+            .pp-cards {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .pp-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 2rem 2rem 1.5rem;
+            cursor: pointer;
+        }
+
+        .pp-card-heading-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: .375rem;
+            align-items: center;
+        }
+
+        .pp-card-icon {
+            width: 24px;
+            height: 24px;
+            margin: .125rem;
+            flex: 0 0 auto;
+            color: var(--brand);
+        }
+
+        .pp-card-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .pp-card-heading {
+            margin: 0;
+            font-size: 1.125rem;
+            font-weight: 500;
+            line-height: 1.5556;
+        }
+
+        .pp-trademark {
+            font-weight: 300;
+            font-size: .75em;
+            vertical-align: super;
+        }
+
+        .pp-divider {
+            border-top: 1px dashed var(--border-03);
+            width: 100%;
+            margin: 0;
+        }
+
+        .pp-features {
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+        }
+
+        .pp-features li {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: .5rem;
+            font-size: .875rem;
+            font-weight: 300;
+            line-height: 1.5714;
+        }
+
+        .pp-features svg {
+            width: 1.125rem;
+            height: 1.125rem;
+            margin: 3px;
+            flex: 0 0 auto;
+            fill: var(--brand);
+        }
+
+        .pp-card-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        /* ==========================================================================
+           Brand activations carousel
+           ========================================================================== */
+        .breeze-section {
+            position: relative;
+            overflow: hidden;
+            background-color: #C7E5C6;
+            background-image: none;
+        }
+
+        .breeze-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .breeze-content .fsh {
+            width: 100%;
+            margin-bottom: 4rem;
+        }
+
+        .breeze-tagline-icon {
+            display: inline-grid;
+            place-items: center;
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-round);
+            background: var(--container-01);
+            border: 1px solid var(--border-03);
+            color: var(--brand);
+        }
+
+        .breeze-tagline-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .breeze-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 368px;
+        }
+
+        @media (width >=900px) {
+            .breeze-carousel {
+                max-width: none;
+            }
+        }
+
+        .breeze-track {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        @media (width >=900px) {
+            .breeze-track {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .breeze-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            padding: 1.5rem 1.5rem 2rem;
+        }
+
+        @media (width >=900px) {
+            .breeze-slide {
+                opacity: .5;
+                transform: scale(.9);
+                transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+            }
+
+            .breeze-slide.-active {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .breeze-slide img {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: var(--radius-medium);
+            object-fit: cover;
+            aspect-ratio: 16 / 10;
+        }
+
+        .breeze-slide-title {
+            margin: 0 0 .25rem;
+            font-size: 1.375rem;
+            font-weight: 500;
+            line-height: 1.4545;
+        }
+
+        .breeze-slide-description {
+            margin: 0;
+        }
+
+        .breeze-slide .text-link {
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        .breeze-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding-top: 2.5rem;
+        }
+
+        /* ==========================================================================
+           Rotating SVG / integrations
+           ========================================================================== */
+        .rotating-svg-container {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 1.5rem;
+            overflow: hidden;
+        }
+
+        @media (width >=1080px) {
+            .rotating-svg-container {
+                flex-direction: row;
+                gap: 1rem;
+            }
+        }
+
+        .rotating-svg-heading-wrapper {
+            flex: 1;
+            padding: 0 2rem 2rem;
+        }
+
+        @media (width >=900px) {
+            .rotating-svg-heading-wrapper {
+                padding: 3.5rem 0 3.5rem 5rem;
+            }
+        }
+
+        .rotating-svg-heading {
+            margin: 1rem 0;
+            max-width: 22ch;
+        }
+
+        .rotating-svg-icons {
+            flex: 1;
+            min-height: 260px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .rotating-svg-lists {
+            display: flex;
+            gap: 2.5rem;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: rotate(15deg) translate(-50%, -20%);
+        }
+
+        .rotating-svg-list {
+            display: grid;
+            gap: 2.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            animation: drift 22s linear infinite;
+        }
+
+        .rotating-svg-list:nth-child(2) {
+            animation-duration: 30s;
+            animation-direction: reverse;
+        }
+
+        .rotating-svg-list:nth-child(3) {
+            animation-duration: 26s;
+        }
+
+        @keyframes drift {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-33%);
+            }
+        }
+
+        .rotating-svg-list img {
+            width: 82px;
+            height: 82px;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            object-fit: cover;
+            background: #fff;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .rotating-svg-list {
+                animation: none;
+            }
+        }
+
+        /* ==========================================================================
+           Tabbed testimonials
+           ========================================================================== */
+        .tabs-control {
+            border-bottom: 1px solid var(--divider-01);
+            padding: 0 16px;
+        }
+
+        .tab-list {
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 2px 2px 0;
+        }
+
+        .tab-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-item {
+            display: inline-flex;
+            align-items: flex-end;
+            flex: 0 0 auto;
+            max-width: 240px;
+            min-width: 100px;
+        }
+
+        .tab-button {
+            width: 100%;
+            height: 100%;
+            display: inline-flex;
+            align-items: end;
+            justify-content: center;
+            background: transparent;
+            border: 0;
+            border-bottom: 4px solid transparent;
+            color: var(--text-02);
+            cursor: pointer;
+            padding: 8px 16px 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.75;
+            transition: color .2s linear;
+        }
+
+        .tab-button:hover {
+            background: var(--hover-01);
+            color: var(--text-01);
+        }
+
+        .tab-button[aria-selected="true"] {
+            border-bottom-color: var(--border-01);
+            color: var(--text-01);
+        }
+
+        .tab-group {
+            padding: 24px 0;
+        }
+
+        .tab-content[hidden] {
+            display: none;
+        }
+
+        .testimonial-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        @media (width >=900px) {
+            .testimonial-card {
+                grid-template-columns: 260px minmax(0, 1fr) 200px;
+                gap: 2rem;
+                padding: 2rem;
+                align-items: center;
+            }
+        }
+
+        .testimonial-image img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: var(--radius-medium);
+        }
+
+        .testimonial-quote {
+            margin: 0 0 1.5rem;
+            font-size: 1.125rem;
+            font-weight: 300;
+            line-height: 1.78;
+        }
+
+        .testimonial-author-name {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.75;
+        }
+
+        .testimonial-author-title {
+            margin: 0 0 .75rem;
+            font-size: .875rem;
+            font-weight: 300;
+            color: var(--text-02);
+        }
+
+        .testimonial-stats {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (width >=600px) and (width < 900px) {
+            .testimonial-stats {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .testimonial-stat-value {
+            margin: 0;
+            font-family: var(--font-serif);
+            font-weight: 300;
+            font-size: 2.5rem;
+            line-height: 1.1;
+            color: var(--brand);
+        }
+
+        .testimonial-stat-desc {
+            margin: .25rem 0 0;
+            font-size: .875rem;
+            font-weight: 300;
+            line-height: 1.5714;
+            color: var(--text-02);
+        }
+
+        /* ==========================================================================
+           Badges
+           ========================================================================== */
+        .badges-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        @media (width >=900px) {
+            .badges-content {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (width >=1080px) {
+            .badges-content {
+                justify-content: flex-start;
+            }
+        }
+
+        .badges-title {
+            margin: 0;
+            text-align: center;
+        }
+
+        @media (width >=1080px) {
+            .badges-title {
+                max-width: 370px;
+                text-align: left;
+            }
+        }
+
+        .badges-grid {
+            display: flex;
+            flex-grow: 1;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        @media (width >=1080px) {
+            .badges-grid {
+                max-width: 712px;
+            }
+        }
+
+        .badges-grid img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: var(--radius-round);
+        }
+
+        /* ==========================================================================
+           Elevated CTA (dark)
+           ========================================================================== */
+        .elevated-cta {
+            background: var(--dark-bg-01);
+            color: var(--dark-text-01);
+        }
+
+        .elevated-cta .h1 {
+            margin: 0;
+            max-width: 20ch;
+        }
+
+        .elevated-cta-ctas {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (width >=600px) {
+            .elevated-cta-ctas {
+                flex-direction: row;
+            }
+        }
+
+        .elevated-cta .btn.-secondary {
+            background: transparent;
+            border-color: var(--dark-text-01);
+            color: var(--dark-text-01);
+        }
+
+        .elevated-cta .btn.-secondary:hover {
+            background: rgba(255, 255, 255, .06);
+            border-color: var(--dark-text-01);
+            color: var(--dark-text-01);
+        }
+
+        /* ==========================================================================
+           Footer
+           ========================================================================== */
+        .global-footer {
+            background: var(--footer-bg);
+            color: var(--dark-text-01);
+            padding-block: 3rem 2rem;
+        }
+
+        .footer-layout {
+            width: 100%;
+            max-width: var(--content-max-width);
+            margin-inline: auto;
+            padding-inline: 1rem;
+        }
+
+        @media (width >=1080px) {
+            .footer-layout {
+                padding-inline: 0;
+            }
+        }
+
+        .footer-nav {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (width >=600px) {
+            .footer-nav {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (width >=900px) {
+            .footer-nav {
+                grid-template-columns: 1.2fr 1fr 1fr 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .footer-column h2 {
+            margin: 0 0 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.75;
+        }
+
+        .footer-column li a {
+            display: block;
+            padding: .1875rem 0;
+            font-size: .875rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--dark-text-01);
+            text-decoration: none;
+        }
+
+        .footer-column li a:hover {
+            text-decoration: underline;
+            text-decoration-color: var(--brand);
+            text-underline-offset: 3px;
+        }
+
+        .footer-stack {
+            display: grid;
+            gap: 2rem;
+            align-content: start;
+        }
+
+        .footer-social {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--dark-border-03);
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-round);
+            background: #292929;
+            display: grid;
+            place-items: center;
+            color: var(--dark-text-01);
+        }
+
+        .footer-social a:hover {
+            background: var(--brand);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (width >=900px) {
+            .footer-bottom {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        .footer-apps {
+            display: flex;
+            gap: .75rem;
+        }
+
+        .footer-apps img {
+            height: 45px;
+            width: auto;
+            border-radius: 6px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+        }
+
+        .footer-logo .mark {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            color: var(--dark-text-01);
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .footer-logo .mark svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer-logo p {
+            margin: 0;
+            font-size: .75rem;
+            font-weight: 300;
+            color: var(--dark-text-02);
+        }
+
+        .footer-legal ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-legal a {
+            font-size: .75rem;
+            font-weight: 300;
+            color: var(--dark-text-02);
+            text-decoration: none;
+        }
+
+        .footer-legal a:hover {
+            color: var(--dark-text-01);
+            text-decoration: underline;
+        }
+
+        :root {
+            --font-serif: var(--font-sans);
+        }
+
+        body {
+            font-weight: 400;
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-wrap: balance;
+        }
+
+        p {
+            text-wrap: pretty;
+        }
+
+        section[id],
+        article[id] {
+            scroll-margin-top: 95px;
+        }
+
+        .brand-dot {
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background: #C7E5C6;
+            margin-left: 4px;
+        }
+
+        .nav-top-bar-inner {
+            font-size: 12px;
+            color: #515662;
+        }
+
+        .nav-logo {
+            color: #1B2241;
+            font-weight: 700;
+        }
+
+        .page-header-heading {
+            font-weight: 500;
+            font-size: clamp(40px, 5.6vw, 76px);
+            line-height: 1.1;
+            max-width: 100%;
+            letter-spacing: -.035em;
+        }
+
+        .page-header-description {
+            max-width: 740px;
+            font-weight: 400;
+            line-height: 1.65;
+        }
+
+        .page-header {
+            min-height: 640px;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(#ffffff08 1px, transparent 1px), linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+            background-size: 80px 80px;
+        }
+
+        .page-header-bg::after {
+            background: none;
+        }
+
+        .page-header .btn.-primary {
+            background: #C7E5C6;
+            border-color: #C7E5C6;
+            color: #1B2241;
+        }
+
+        .page-header .btn.-secondary {
+            color: white;
+            border-color: #ffffff80;
+            background: transparent;
+        }
+
+        .page-header .btn:hover {
+            background: white;
+            color: #1B2241;
+        }
+
+        .client-name {
+            font-size: clamp(24px, 3vw, 34px);
+            font-weight: 600;
+            color: #1B2241;
+            letter-spacing: -.03em;
+            padding: 12px 24px;
+        }
+
+        .logo-strip {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: clamp(12px, 6vw, 90px);
+        }
+
+        .pp-card-heading {
+            font-size: 1.15rem;
+            line-height: 1.4;
+        }
+
+        .pp-features li {
+            font-weight: 400;
+        }
+
+        .breeze-section {
+            background: #1B2241;
+            color: white;
+        }
+
+        .breeze-section .fsh-description {
+            color: #e2e5ed;
+        }
+
+        .breeze-section .breeze-slide {
+            background: white;
+            color: #1B2241;
+        }
+
+        .breeze-section .btn {
+            color: #C7E5C6;
+            border-color: #C7E5C6;
+        }
+
+        .breeze-section .breeze-tagline-icon {
+            color: #1B2241;
+            background: #C7E5C6;
+        }
+
+        .breeze-section .round-btn {
+            background: white;
+            color: #1B2241;
+        }
+
+        .breeze-slide {
+            opacity: 1 !important;
+        }
+
+        .system-tile {
+            display: grid;
+            place-items: center;
+            width: 82px;
+            height: 82px;
+            background: #C7E5C6;
+            color: #1B2241;
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .testimonial-image img {
+            object-fit: contain;
+            background: #1B2241;
+        }
+
+        .testimonial-quote {
+            font-weight: 400;
+        }
+
+        .delivery-pill {
+            padding: 12px 16px;
+            border: 1px solid #d5d9df;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #1B2241;
+            background: #f5f6f7;
+        }
+
+        .faq-list {
+            max-width: 860px;
+            margin: 32px auto 0;
+        }
+
+        .faq-list details {
+            border-bottom: 1px solid #d5d9df;
+            padding: 20px 0;
+        }
+
+        .faq-list summary {
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .faq-list p {
+            line-height: 1.7;
+            color: #515662;
+            max-width: 75ch;
+            padding-top: 14px;
+        }
+
+        #faq h2 {
+            text-align: center;
+        }
+
+        .elevated-cta .p-medium {
+            max-width: 670px;
+            margin: 0 auto 28px;
+        }
+
+        .footer-bottom {
+            justify-content: flex-start;
+        }
+
+        .footer-logo {
+            text-align: left;
+        }
+
+        :focus-visible {
+            outline: 3px solid #658263;
+            outline-offset: 5px;
+        }
+
+        a.visually-hidden:focus {
+            position: fixed;
+            width: auto;
+            height: auto;
+            clip: auto;
+            clip-path: none;
+            top: 10px;
+            left: 10px;
+            padding: 16px;
+            background: white;
+            z-index: 9999;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .pp-card,
+        .cp-slide-body,
+        .fsh-heading,
+        .fsh-description {
+            min-width: 0;
+        }
+
+        @media(max-width:599px) {
+            .page-header {
+                min-height: 580px;
+            }
+
+            .page-header-content {
+                padding: 56px 20px;
+            }
+
+            .page-header-tagline {
+                font-size: 11px;
+                letter-spacing: .1em;
+            }
+
+            .page-header-description {
+                font-size: 16px;
+            }
+
+            .tab-button {
+                padding: 12px 8px;
+                font-size: 13px;
+            }
+
+            .tab-item {
+                min-width: 0;
+                flex: 1;
+            }
+
+            .nav-logo {
+                font-size: 24px;
+            }
+
+            .testimonial-image img {
+                height: auto;
+            }
+
+            .logo-strip {
+                gap: 0;
+            }
+
+            .client-name {
+                padding: 12px 15px;
+                font-size: 23px;
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        @media(max-width:899px) {
+            .breeze-controls {
+                display: none;
+            }
+        }
+
+        /* Layout correction: contact and client alignment */
+        .logo-strip {
+            display: flex;
+            grid-template-columns: none;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px 72px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+        }
+
+        .logo-strip .client-name {
+            flex: 0 1 auto;
+            text-align: center;
+            padding: 12px 20px;
+        }
+
+        .logo-strip img {
+            width: auto;
+            height: auto;
+            max-width: none;
+            object-fit: contain;
+        }
+
+        .logo-strip .logo-almarai {
+            height: 64px;
+        }
+
+        .logo-strip .logo-puteri {
+            height: 60px;
+        }
+
+        .logo-strip .logo-4gcapital {
+            width: 190px;
+        }
+
+        .elevated-cta .section-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .elevated-cta .h1 {
+            max-width: 22ch;
+            margin: 0 auto 24px;
+            font-weight: 500;
+            line-height: 1.15;
+        }
+
+        .elevated-cta .p-medium {
+            max-width: 650px;
+            margin: 0 auto;
+            color: #e2e5ed;
+            line-height: 1.7;
+        }
+
+        .elevated-cta-ctas {
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 32px;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .elevated-cta .btn.-primary {
+            background: #C7E5C6;
+            border-color: #C7E5C6;
+            color: #1B2241;
+        }
+
+        .elevated-cta .btn.-primary:hover {
+            background: white;
+            border-color: white;
+            color: #1B2241;
+        }
+
+        .elevated-cta .btn.-secondary:hover {
+            background: white;
+            border-color: white;
+            color: #1B2241;
+        }
+
+        .engagement-visual {
+            min-height: 220px;
+            border-radius: 8px;
+            background: #1B2241;
+            color: #C7E5C6;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 24px;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        .engagement-number {
+            font-size: 64px;
+            line-height: 1;
+            font-weight: 500;
+            letter-spacing: -.05em;
+        }
+
+        .breeze-slide img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 704/353;
+            object-fit: cover;
+        }
+
+        .breeze-slide-description {
+            color: #515662;
+        }
+
+        .rotating-svg-icons img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .breeze-section .fsh-line {
+            background: #ffffff40;
+        }
+
+        .cp-slide-image img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 704 / 353;
+            object-fit: cover;
+        }
+
+        .footer-column a {
+            overflow-wrap: anywhere;
+        }
+
+        @media(max-width:599px) {
+            .logo-strip {
+                gap: 8px 16px;
+            }
+
+            .logo-strip .client-name {
+                padding: 8px 12px;
+            }
+
+            .elevated-cta .h1 {
+                font-size: clamp(30px, 8vw, 42px);
+                max-width: 22ch;
+                margin-bottom: 20px;
+            }
+
+            .elevated-cta-ctas {
+                flex-direction: column;
+                align-items: stretch;
+                max-width: 360px;
+            }
+
+            .elevated-cta-ctas .btn {
+                width: 100%;
+                white-space: normal;
+                text-align: center;
+            }
+
+            .engagement-visual {
+                min-height: 160px;
+            }
+
+            .engagement-number {
+                font-size: 48px;
+            }
+        }
+    </style>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#1B2241">
+    <meta name="author" content="JALTech">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JALTech | FMCG Software Solutions &amp; Brand Activations">
+    <meta name="twitter:description"
+        content="JALTech builds custom FMCG software, consumer campaigns, field sales apps and brand activations. Trusted by Almarai, Puteri and 4G Capital. Explore our services.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="JALTech | FMCG Software Solutions &amp; Brand Activations">
+    <meta property="og:description"
+        content="JALTech builds custom FMCG software, consumer campaigns, field sales apps and brand activations. Trusted by Almarai, Puteri and 4G Capital. Explore our services.">
+    <meta property="og:url" content="https://jaltech.org/">
+    <meta property="og:site_name" content="JALTech">
+    <meta property="og:locale" content="en_US">
+    <link rel="canonical" href="https://jaltech.org/">
+    <script
+        type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://jaltech.org/#organization", "name": "JALTech", "url": "https://jaltech.org/", "description": "JALTech builds custom FMCG software, consumer campaigns, field sales apps and brand activations. Trusted by Almarai, Puteri and 4G Capital. Explore our services.", "email": "comm@ibjects.com", "knowsAbout": ["FMCG software", "Consumer promotions", "Field sales software", "Brand activations", "Custom software development", "Internal Android sales apps", "Inventory integration", "Custom internal software", "Management-in-training applications"]}, {"@type": "WebSite", "@id": "https://jaltech.org/#website", "url": "https://jaltech.org/", "name": "JALTech", "publisher": {"@id": "https://jaltech.org/#organization"}}, {"@type": "WebPage", "@id": "https://jaltech.org/#webpage", "url": "https://jaltech.org/", "name": "JALTech | FMCG Software Solutions & Brand Activations", "description": "JALTech builds custom FMCG software, consumer campaigns, field sales apps and brand activations. Trusted by Almarai, Puteri and 4G Capital. Explore our services.", "inLanguage": "en", "isPartOf": {"@id": "https://jaltech.org/#website"}, "about": {"@id": "https://jaltech.org/#organization"}}, {"@type": "FAQPage", "@id": "https://jaltech.org/#faq", "mainEntity": [{"@type": "Question", "name": "What does JALTech do?", "acceptedAnswer": {"@type": "Answer", "text": "JALTech is a software house specializing in fast-moving consumer goods (FMCG). We build custom internal software, Android sales apps connected to inventory, distributor portals and consumer campaign platforms. Scan-and-win and management-in-training (MIT) apps are examples of what we build. We also deliver mall stalls and interactive brand activations."}}, {"@type": "Question", "name": "Can you build internal Android apps connected to inventory?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We have built custom Android apps for internal sales teams connected to inventory. We can tailor the app to your team’s sales workflows and integrate it with the systems your business uses."}}, {"@type": "Question", "name": "Can you manage both the software and a mall activation?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We can bring together campaign planning, the physical brand experience and its digital tools, including registration, QR journeys, games and reporting. The scope is agreed around your campaign and venue."}}, {"@type": "Question", "name": "Do you only work with FMCG companies?", "acceptedAnswer": {"@type": "Answer", "text": "FMCG is our specialty. We also provide mobile and web development, MVP development, DevOps and cloud solutions, game development, and UI/UX design for businesses in other industries."}}, {"@type": "Question", "name": "Can you work with our existing software?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We review your current systems and available APIs, then plan the integrations, data flows and access controls needed for the project."}}, {"@type": "Question", "name": "How much will our project cost, and how long will it take?", "acceptedAnswer": {"@type": "Answer", "text": "Cost and timing depend on the scope, integrations and launch requirements. Share your goal and target date so we can propose a delivery plan and estimate."}}, {"@type": "Question", "name": "Do you provide support after launch?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We offer ongoing maintenance, cloud support and product improvements. Support scope and response expectations are agreed as part of your engagement."}}]}, {"@type": "Service", "@id": "https://jaltech.org/#consumer-promotions", "name": "Consumer Promotions", "description": "Scan-and-win, loyalty and other campaign platforms. Entry validation, prize rules and campaign reporting.", "provider": {"@id": "https://jaltech.org/#organization"}, "url": "https://jaltech.org/#consumer-promotions"}, {"@type": "Service", "@id": "https://jaltech.org/#field-sales", "name": "Internal Sales & Inventory Apps", "description": "Custom Android apps for your sales team. Connect inventory, orders and outlet workflows.", "provider": {"@id": "https://jaltech.org/#organization"}, "url": "https://jaltech.org/#field-sales"}, {"@type": "Service", "@id": "https://jaltech.org/#enterprise-software", "name": "Custom Internal Solutions", "description": "Software tailored to HR, finance and operations. Inventory workflows, approvals, MIT apps and reporting.", "provider": {"@id": "https://jaltech.org/#organization"}, "url": "https://jaltech.org/#enterprise-software"}, {"@type": "Service", "@id": "https://jaltech.org/#brand-activations", "name": "Brand Activations", "description": "Mall stalls, pop-ups and consumer experiences. Campaign planning, on-site execution and digital interaction.", "provider": {"@id": "https://jaltech.org/#organization"}, "url": "https://jaltech.org/#brand-activations"}, {"@type": "Service", "@id": "https://jaltech.org/#mobile-apps", "name": "Mobile App Development", "description": "iOS, Android and cross-platform applications. Practical tools for customers, field teams and employees.", "provider": {"@id": "https://jaltech.org/#organization"}, "url": "https://jaltech.org/#mobile-apps"}, {"@type": "Service", "@id": "https://jaltech.org/#web-development", "name": "Web Development", "description": "Business websites, portals and web applications. Responsive experiences built around your workflows.", "provider": {"@id": "https://jaltech.org/#organization"}, "url": "https://jaltech.org/#web-development"}, {"@type": "Service", "@id": "https://jaltech.org/#mvp-development", "name": "Concept to Product (MVP)", "description": "Turn an idea into a focused first product. Validate the essentials before expanding the platform.", "provider": {"@id": "https://jaltech.org/#organization"}, "url": "https://jaltech.org/#mvp-development"}, {"@type": "Service", "@id": "https://jaltech.org/#devops-cloud", "name": "DevOps & Cloud Solutions", "description": "Cloud infrastructure and automated deployments. Monitoring, maintenance and support as you grow.", "provider": {"@id": "https://jaltech.org/#organization"}, "url": "https://jaltech.org/#devops-cloud"}, {"@type": "Service", "@id": "https://jaltech.org/#game-development", "name": "Game Development", "description": "Games for mobile, desktop and brand campaigns. Interactive experiences for engagement and training.", "provider": {"@id": "https://jaltech.org/#organization"}, "url": "https://jaltech.org/#game-development"}, {"@type": "Service", "@id": "https://jaltech.org/#product-design", "name": "UI/UX & Product Design", "description": "User research, prototypes and interface design. Clear, usable experiences for the people who matter.", "provider": {"@id": "https://jaltech.org/#organization"}, "url": "https://jaltech.org/#product-design"}]}</script>
+    <noscript>
+        <style>
+            .cp-slide {
+                display: grid !important;
+                margin-bottom: 28px
+            }
+
+            .carousel-footer,
+            .breeze-controls,
+            .tabs-control,
+            .nav-burger {
+                display: none !important
+            }
+
+            .tab-content[hidden] {
+                display: block !important
+            }
+
+            .nav-mobile {
+                display: flex !important;
+                flex-wrap: wrap;
+                gap: 16px;
+                padding: 16px
+            }
+
+            .breeze-slide {
+                opacity: 1 !important
+            }
+        </style>
+    </noscript>
 </head>
 
 <body>
 
+    <a class="visually-hidden" href="#main">Skip to content</a>
 
-  <!-- ======= Site Wrap =======-->
-  <div class="site-wrap">
+    <header class="global-nav-header">
 
-
-    <!-- ======= Header =======-->
-    <header class="fbs__net-navbar navbar navbar-expand-lg dark" aria-label="freebootstrap.net navbar">
-      <div class="container d-flex align-items-center justify-content-between">
-
-
-        <!-- Start Logo-->
-        <a class="navbar-brand w-auto" href="index.html">
-          <!-- If you use a text logo, uncomment this if it is commented-->
-          <!-- Vertex-->
-
-          <!-- If you plan to use an image logo, uncomment this if it is commented-->
-
-          <!-- logo dark--><img class="logo dark img-fluid" src="assets/images/logo-dark.svg"
-            alt="FreeBootstrap.net image placeholder">
-
-          <!-- logo light--><img class="logo light img-fluid" src="assets/images/logo-light.svg"
-            alt="FreeBootstrap.net image placeholder">
-
-        </a>
-        <!-- End Logo-->
-
-        <!-- Start offcanvas-->
-        <div class="offcanvas offcanvas-start w-75" id="fbs__net-navbars" tabindex="-1"
-          aria-labelledby="fbs__net-navbarsLabel">
-
-
-          <div class="offcanvas-header">
-            <div class="offcanvas-header-logo">
-              <!-- If you use a text logo, uncomment this if it is commented-->
-
-              <!-- h5#fbs__net-navbarsLabel.offcanvas-title Vertex-->
-
-              <!-- If you plan to use an image logo, uncomment this if it is commented-->
-              <a class="logo-link" id="fbs__net-navbarsLabel" href="index.html">
-
-
-                <!-- logo dark--><img class="logo dark img-fluid" src="assets/images/logo-dark.svg"
-                  alt="FreeBootstrap.net image placeholder">
-
-                <!-- logo light--><img class="logo light img-fluid" src="assets/images/logo-light.svg"
-                  alt="FreeBootstrap.net image placeholder"></a>
-
+        <nav class="nav-top-bar" aria-label="Utility">
+            <div class="nav-content">
+                <div class="nav-top-bar-inner"><span>FMCG software specialists. End-to-end delivery.</span>
+                    <div><a class="nav-utility-link" href="#solutions">About JALTech</a>   <a class="nav-utility-link"
+                            href="mailto:comm@ibjects.com">comm@ibjects.com</a></div>
+                </div>
             </div>
-            <button class="btn-close btn-close-black" type="button" data-bs-dismiss="offcanvas"
-              aria-label="Close"></button>
-          </div>
+        </nav>
 
-          <div class="offcanvas-body align-items-lg-center">
+        <nav class="nav-main" id="navMain" aria-label="Primary">
+            <div class="nav-content">
+                <div class="nav-main-inner">
 
+                    <a class="nav-logo" href="#top" aria-label="JALTech home"><img src="assets/images/logo-dark.svg"
+                            alt="JALTech" width="104" height="38"></a>
 
-            <ul class="navbar-nav nav me-auto ps-lg-5 mb-2 mb-lg-0">
-              <li class="nav-item"><a class="nav-link scroll-link active" aria-current="page" href="#home">Home</a></li>
-              <li class="nav-item"><a class="nav-link scroll-link" href="#about">Approach</a></li>
-              <!-- <li class="nav-item"><a class="nav-link scroll-link" href="#pricing">Projects Scope</a></li>
-              <li class="nav-item"><a class="nav-link scroll-link" href="#how-it-works">How It Works</a></li> -->
-              <li class="nav-item"><a class="nav-link scroll-link" href="#services">Services</a></li>
-              <li class="nav-item d-flex align-items-center">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Our AI</a>
-                <span class="badge text-bg-custom">Coming soon</span>
-              </li>
-              <!-- <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                  aria-expanded="false">Dropdown <i class="bi bi-chevron-down"></i></a>
-
-                <ul class="dropdown-menu">
-                  <li><a class="nav-link scroll-link dropdown-item" href="#">Multipages</a></li>
-                  <li><a class="nav-link scroll-link dropdown-item" href="#services">Services</a></li>
-                  <li><a class="nav-link scroll-link dropdown-item" href="#pricing">Pricing</a></li>
-                  <li class="nav-item dropstart"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                      aria-expanded="false">Dropstart <i class="bi bi-chevron-right"></i></a>
-                    <ul class="dropdown-menu">
-                      <li><a class="nav-link scroll-link dropdown-item" href="#services">Services</a></li>
-                      <li><a class="nav-link scroll-link dropdown-item" href="#pricing">Pricing</a></li>
-                      <li class="nav-item dropstart"><a class="nav-link dropdown-toggle" href="#"
-                          data-bs-toggle="dropdown" aria-expanded="false">Dropstart <i
-                            class="bi bi-chevron-right"></i></a>
-                        <ul class="dropdown-menu">
-                          <li><a class="nav-link scroll-link dropdown-item" href="#services">Services</a></li>
-                          <li><a class="nav-link scroll-link dropdown-item" href="#pricing">Pricing</a></li>
-                          <li><a class="nav-link scroll-link dropdown-item" href="#">Something else here</a></li>
-                          <li class="nav-item dropend"><a class="nav-link dropdown-toggle" href="#"
-                              data-bs-toggle="dropdown" aria-expanded="false">Dropend <i
-                                class="bi bi-chevron-right"></i></a>
-                            <ul class="dropdown-menu">
-                              <li><a class="nav-link scroll-link dropdown-item" href="#services">Services</a></li>
-                              <li><a class="nav-link scroll-link dropdown-item" href="#pricing">Pricing</a></li>
-                              <li><a class="nav-link scroll-link dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
+                    <ul class="nav-tab-list">
+                        <li class="nav-tab-wrapper"><a class="nav-tab" href="#solutions">FMCG Solutions</a></li>
+                        <li class="nav-tab-wrapper"><a class="nav-tab" href="#services">Services</a></li>
+                        <li class="nav-tab-wrapper"><a class="nav-tab" href="#activations">Brand Activations</a></li>
+                        <li class="nav-tab-wrapper"><a class="nav-tab" href="#process">How We Work</a></li>
                     </ul>
-                  </li>
-                </ul>
 
-              </li> -->
-              <li class="nav-item"><a class="nav-link scroll-link" href="#contact">Contact</a></li>
-            </ul>
+                    <div class="nav-ctas"><a class="btn -primary -small" href="#contact">Let’s talk</a></div>
 
-          </div>
-        </div>
-        <!-- End offcanvas-->
+                    <button class="nav-burger" id="navBurger" aria-expanded="false" aria-controls="navMobile">
+                        <span class="visually-hidden">Menu</span>
+                        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M3 6h18M3 12h18M3 18h18"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
 
-        <div class="ms-auto w-auto">
-
-
-          <div class="header-social d-flex align-items-center gap-1"><a class="btn btn-primary py-2"
-              href="mailto:comm@ibjects.com?subject=Get%20Started%20with%20JALTech">Get
-              Started</a>
-
-            <button class="fbs__net-navbar-toggler justify-content-center align-items-center ms-auto"
-              data-bs-toggle="offcanvas" data-bs-target="#fbs__net-navbars" aria-controls="fbs__net-navbars"
-              aria-label="Toggle navigation" aria-expanded="false">
-              <svg class="fbs__net-icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <line x1="21" x2="3" y1="6" y2="6"></line>
-                <line x1="15" x2="3" y1="12" y2="12"></line>
-                <line x1="17" x2="3" y1="18" y2="18"></line>
-              </svg>
-              <svg class="fbs__net-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M18 6 6 18"></path>
-                <path d="m6 6 12 12"></path>
-              </svg>
-            </button>
-
-          </div>
-
-        </div>
-      </div>
+            <div class="nav-mobile" id="navMobile"><a class="" href="#solutions">FMCG Solutions</a><a class=""
+                    href="#services">Services</a><a class="" href="#activations">Brand Activations</a><a class=""
+                    href="#process">How We Work</a><a class="btn -primary -small" href="#contact">Contact us</a></div>
+        </nav>
     </header>
-    <!-- End Header-->
 
-    <!-- ======= Main =======-->
-    <main>
+    <main id="main">
 
+        <section class="page-header" id="top">
+            <div class="page-header-bg">
+                <div class="hero-grid" aria-hidden="true"></div>
+            </div>
+            <div class="page-header-content">
+                <p class="page-header-tagline">FMCG SOFTWARE &amp; BRAND ACTIVATIONS</p>
+                <h1 class="page-header-heading">Software that moves<br><span style="color:#C7E5C6">FMCG brands
+                        forward.</span></h1>
+                <p class="page-header-description">We build custom software for fast-moving consumer goods (FMCG)
+                    businesses — from internal sales apps connected to inventory to consumer campaigns and everyday
+                    operations. We also deliver mall activations and interactive brand experiences.</p>
+                <div class="page-header-ctas"><a class="btn -primary -large" href="#contact">Discuss your project</a><a
+                        class="btn -secondary -large" href="#solutions">Explore our solutions</a></div>
+            </div>
+        </section>
 
-      <!-- ======= Hero =======-->
-      <section class="hero__v6 section" id="home">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-              <div class="row">
-                <div class="col-lg-11"><span class="hero-subtitle text-uppercase" data-aos="fade-up"
-                    data-aos-delay="0">FULL-SERVICE SOFTWARE ENGINEERING</span>
-                  <h1 class="hero-title mb-3" data-aos="fade-up" data-aos-delay="100">Engineering Your Digital Vision
-                    into Reality</h1>
-                  <p class="hero-description mb-4 mb-lg-5" data-aos="fade-up" data-aos-delay="200">We are a premier
-                    software house delivering bespoke web, mobile, and enterprise solutions. From concept to product, we
-                    are the strategic technology partner for ambitious businesses worldwide.</p>
-                  <div class="cta d-flex gap-2 mb-4 mb-lg-5" data-aos="fade-up" data-aos-delay="300"><a class="btn"
-                      href="https://calendly.com/ibjects/general-meetup">Schedule a Consultation</a><a
-                      class="btn btn-white-outline" href="#services">Explore Our
-                      Services
-                      <svg class="lucide lucide-arrow-up-right" xmlns="http://www.w3.org/2000/svg" width="18"
-                        height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M7 7h10v10"></path>
-                        <path d="M7 17 17 7"></path>
-                      </svg></a></div>
-                  <div class="logos mb-4" data-aos="fade-up" data-aos-delay="400"><span
-                      class="logos-title text-uppercase mb-4 d-block">Trusted by major companies worldwide</span>
-                    <div class="logos-images d-flex gap-4 align-items-center">
-                      <img class="img-fluid js-img-to-inline-svg"
-                        src="assets/images/logo/actual-size/4gcapital-logo.jpeg"
-                        alt="4GCapital -  The NeoBank for Africa" style="width: 110px;" />
-                      <img class="img-fluid js-img-to-inline-svg" src="assets/images/logo/actual-size/almarai_logo.png"
-                        alt="Almarai - GCC" style="width: 110px;" />
-                      <img class="img-fluid js-img-to-inline-svg" src="assets/images/logo/actual-size/puteri-logo.png"
-                        alt="Puteri - Malaysia" style="width: 80px;">
+        <section class="section" aria-label="Customers" id="clients">
+            <div class="section-wrapper">
+                <h2 class="logo-carousel-header">Trusted by Almarai, Puteri and 4G Capital</h2>
+                <ul class="logo-strip">
+                    <li><img src="assets/images/logo/actual-size/almarai_logo-cropped.png" class="logo-almarai"
+                            alt="Almarai" loading="lazy"></li>
+                    <li><img src="assets/images/logo/actual-size/puteri-logo.png" class="logo-puteri" alt="Puteri"
+                            loading="lazy"></li>
+                    <li><img src="assets/images/logo/actual-size/4gcapital-logo.jpeg" class="logo-4gcapital"
+                            alt="4G Capital" loading="lazy"></li>
+                </ul>
+            </div>
+        </section>
 
-                    </div>
-                  </div>
+        <section class="section" aria-labelledby="cp-heading" id="solutions">
+            <div class="section-wrapper">
+                <div class="cp-header">
+                    <h2 class="h1" id="cp-heading">Your FMCG business. Connected.</h2>
+                    <p class="p-medium">JALTech is a software house specializing in FMCG. We build around your business:
+                        the systems your employees use, the tools your sales teams need and the experiences that connect
+                        you with consumers.</p>
                 </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="hero-img"><img class="img-card img-fluid" src="assets/images/app.png" alt="Image card"
-                  data-aos="fade-down" data-aos-delay="600"><img class="img-main img-fluid rounded-4"
-                  src="assets/images/hero-img-1-min.jpg" alt="Hero Image" data-aos="fade-in" data-aos-delay="500"></div>
-            </div>
-          </div>
-        </div>
-        <!-- End Hero-->
-      </section>
-      <!-- End Hero-->
 
-      <!-- ======= Our Approach =======-->
-      <section class="about__v4 section" id="about">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 order-md-2">
-              <div class="row justify-content-end">
-                <div class="col-md-11 mb-4 mb-md-0"><span class="subtitle text-uppercase mb-3" data-aos="fade-up"
-                    data-aos-delay="0">Our Approach</span>
-                  <h2 class="mb-4" data-aos="fade-up" data-aos-delay="100">We Architect Your Competitive Edge
-                  </h2>
-                  <div data-aos="fade-up" data-aos-delay="200">
-                    <p>JALTECH bridges the critical gap between corporate ambition and technological execution. We are
-                      not just a vendor; we
-                      are an extension of your team, serving as a dedicated technology partner to enterprises across all
-                      industries.</p>
-                    <p>We translate high-level strategic objectives into robust, secure, and measurable digital assets
-                      that deliver a tangible
-                      return on investment.</p>
-                  </div>
-                  <h4 class="small fw-bold mt-4 mb-3" data-aos="fade-up" data-aos-delay="300">Key Values and Vision</h4>
-                  <ul class="d-flex flex-row flex-wrap list-unstyled gap-3 features" data-aos="fade-up"
-                    data-aos-delay="400">
-                    <li class="d-flex align-items-center gap-2"><span class="icon rounded-circle text-center"><i
-                          class="bi bi-check"></i></span><span class="text">Strategic Partnership</span></li>
-                    <li class="d-flex align-items-center gap-2"><span class="icon rounded-circle text-center"><i
-                          class="bi bi-check"></i></span><span class="text">Data-Driven Results</span></li>
-                    <li class="d-flex align-items-center gap-2"><span class="icon rounded-circle text-center"><i
-                          class="bi bi-check"></i></span><span class="text">Enterprise Security</span></li>
-                    <li class="d-flex align-items-center gap-2"><span class="icon rounded-circle text-center"><i
-                          class="bi bi-check"></i></span><span class="text">Full-Cycle Development</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="img-wrap position-relative"><img class="img-fluid rounded-4"
-                  src="assets/images/about_2-min.jpg" alt="FreeBootstrap.net image placeholder" data-aos="fade-up"
-                  data-aos-delay="0">
-                <div class="mission-statement p-4 rounded-4 d-flex gap-4" data-aos="fade-up" data-aos-delay="100">
-                  <div class="mission-icon text-center rounded-circle"><i class="bi bi-lightbulb fs-4"></i></div>
-                  <div>
-                    <h3 class="text-uppercase fw-bold">Our Mission</h3>
-                    <p class="fs-5 mb-0">To be the strategic technology partner that transforms ambitious ideas into
-                      scalable, and market-leading
-                      digital solutions.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- End About-->
-
-      <!-- ======= Features =======-->
-      <section class="section features__v2" id="features">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="d-lg-flex p-5 rounded-4 content" data-aos="fade-in" data-aos-delay="0">
-                <div class="row">
-                  <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="0">
-                    <div class="row">
-                      <div class="col-lg-11">
-                        <div class="h-100 flex-column justify-content-between d-flex">
-                          <div>
-                            <h2 class="mb-4">The JALTECH Advantage</h2>
-                            <p class="mb-5">We are senior strategists and enterprise architects who understand corporate
-                              complexity. Our solutions are designed not
-                              just for functionality, but for measurable business impact, market intelligence, and
-                              long-term strategic value.
-                            </p>
-                          </div>
-                          <div class="align-self-start"><a
-                              class="glightbox btn btn-play d-inline-flex align-items-center gap-2"
-                              href="https://calendly.com/ibjects/general-meetup" data-gallery="video"><i
-                                class="bi bi-play-fill"></i>Schedule Free Consultation</a></div>
+                <div class="cp-carousel" data-carousel="cp" role="region" aria-label="FMCG solution examples"
+                    aria-roledescription="carousel">
+                    <div class="cp-slide -active" data-slide role="group" aria-label="1 of 3">
+                        <div class="cp-slide-body">
+                            <h3 class="h2">Engage your consumers.</h3>
+                            <p class="p-medium">Run scan-and-win promotions, reward programs and digital campaigns.
+                                Manage entries, prize rules and redemptions in one place.</p>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-7">
-                    <div class="row justify-content-end">
-                      <div class="col-lg-11">
-                        <div class="row">
-                          <div class="col-sm-6" data-aos="fade-up" data-aos-delay="0">
-                            <div class="icon text-center mb-4"><i class="bi bi-person-check fs-4"></i></div>
-                            <h3 class="fs-6 fw-bold mb-3">Strategic Partnership</h3>
-                            <p>We function as an extension of your team, providing strategic guidance beyond just code.
-                            </p>
-                          </div>
-                          <div class="col-sm-6" data-aos="fade-up" data-aos-delay="100">
-                            <div class="icon text-center mb-4"><i class="bi bi-graph-up fs-4"></i></div>
-                            <h3 class="fs-6 fw-bold mb-3">Full-Cycle Development</h3>
-                            <p>From initial concept and MVP to enterprise scaling and DevOps, we cover the entire
-                              product lifecycle.</p>
-                          </div>
-                          <div class="col-sm-6" data-aos="fade-up" data-aos-delay="200">
-                            <div class="icon text-center mb-4"><i class="bi bi-headset fs-4"></i></div>
-                            <h3 class="fs-6 fw-bold mb-3">Enterprise-Grade Security</h3>
-                            <p>Security is at the core of our architecture, ensuring your data and applications are
-                              always protected.</p>
-                          </div>
-                          <div class="col-sm-6" data-aos="fade-up" data-aos-delay="300">
-                            <div class="icon text-center mb-4"><i class="bi bi-shield-lock fs-4"></i></div>
-                            <h3 class="fs-6 fw-bold mb-3">Data-Driven ROI</h3>
-                            <p>We build solutions focused on delivering measurable results and a clear return on your
-                              technology investment.</p>
-                          </div>
+                        <div class="cp-slide-image">
+                            <img src="assets/images/scan-win-campaign.jpg"
+                                alt="Busy shopping mall atrium with a brand activation stall" width="704" height="353"
+                                loading="lazy">
                         </div>
-                      </div>
                     </div>
-                  </div>
+
+                    <div class="cp-slide" data-slide role="group" aria-label="2 of 3">
+                        <div class="cp-slide-body">
+                            <h3 class="h2">Give sales teams the tools they need.</h3>
+                            <p class="p-medium">Custom internal Android apps connect your sales team to inventory,
+                                orders and outlet information. We build the workflows and integrations around how your
+                                team works.</p>
+                        </div>
+                        <div class="cp-slide-image">
+                            <img src="assets/images/sales-graph.jpg"
+                                alt="Sales performance line chart on a laptop screen" width="704" height="353"
+                                loading="lazy">
+                        </div>
+                    </div>
+
+                    <div class="cp-slide" data-slide role="group" aria-label="3 of 3">
+                        <div class="cp-slide-body">
+                            <h3 class="h2">Build better internal systems.</h3>
+                            <p class="p-medium">Replace disconnected tools with software built for your operations. From
+                                inventory and approvals to HR and management-in-training (MIT) apps, the scope starts
+                                with your business needs.</p>
+                        </div>
+                        <div class="cp-slide-image">
+                            <img src="assets/images/supermarket.jpg"
+                                alt="Grocery store worker carrying a crate of tomatoes" width="704" height="353"
+                                loading="lazy">
+                        </div>
+                    </div>
+
+                    <div class="carousel-footer">
+                        <button class="round-btn" type="button" data-prev>
+                            <span class="visually-hidden">Previous</span>
+                            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                aria-hidden="true">
+                                <path d="m15 18-6-6 6-6"></path>
+                            </svg>
+                        </button>
+                        <div class="carousel-dots" data-dots></div>
+                        <button class="round-btn" type="button" data-next>
+                            <span class="visually-hidden">Next</span>
+                            <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                aria-hidden="true">
+                                <path d="m9 18 6-6-6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
+        </section>
+
+        <section class="section" aria-labelledby="pp-heading" id="services">
+            <div class="section-wrapper">
+                <div class="pp-container">
+
+                    <div class="pp-main">
+                        <div class="fsh">
+                            <div class="fsh-top">
+                                <div class="fsh-tagline-wrapper">
+                                    <span class="tagline">OUR SERVICES</span>
+                                    <span class="fsh-line" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="fsh-bottom">
+                                <h2 class="h2" id="pp-heading">One partner. From idea to launch.</h2>
+                                <p class="p-medium">Specialist FMCG solutions backed by a full software team. We plan,
+                                    design, build and support the products your business needs.</p>
+                                <div class="cta-group"><a class="btn -primary" href="#contact">Talk to our team</a><a
+                                        class="btn -secondary" href="#process">How we work</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pp-cards">
+
+                        <article class="card -border -hoverable pp-card" id="consumer-promotions">
+                            <div class="pp-card-heading-wrapper">
+                                <span class="pp-card-icon" aria-hidden="true"><svg viewbox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path d="M3 11l18-8-8 18-2-8-8-2z"></path>
+                                    </svg></span>
+                                <h3 class="pp-card-heading">Consumer Promotions</h3>
+                            </div>
+                            <hr class="pp-divider">
+                            <ul class="pp-features">
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Scan-and-win, loyalty and other campaign platforms.</li>
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Entry validation, prize rules and campaign reporting.</li>
+                            </ul>
+                            <div class="pp-card-cta">
+                                <hr class="pp-divider">
+                                <a class="text-link -small -arrow"
+                                    href="mailto:comm@ibjects.com?subject=Consumer%20Promotions">Discuss this service
+                                    →</a>
+                            </div>
+                        </article>
+
+                        <article class="card -border -hoverable pp-card" id="field-sales">
+                            <div class="pp-card-heading-wrapper">
+                                <span class="pp-card-icon" aria-hidden="true"><svg viewbox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path d="M4 20h4v-8H4zm6 0h4V4h-4zm6 0h4v-12h-4z"></path>
+                                    </svg></span>
+                                <h3 class="pp-card-heading">Internal Sales &amp; Inventory Apps</h3>
+                            </div>
+                            <hr class="pp-divider">
+                            <ul class="pp-features">
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Custom Android apps for your sales team.</li>
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Connect inventory, orders and outlet workflows.</li>
+                            </ul>
+                            <div class="pp-card-cta">
+                                <hr class="pp-divider">
+                                <a class="text-link -small -arrow"
+                                    href="mailto:comm@ibjects.com?subject=Internal%20Sales%20%26%20Inventory%20Apps">Discuss
+                                    this service →</a>
+                            </div>
+                        </article>
+
+                        <article class="card -border -hoverable pp-card" id="enterprise-software">
+                            <div class="pp-card-heading-wrapper">
+                                <span class="pp-card-icon" aria-hidden="true"><svg viewbox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path
+                                            d="M12 3a8 8 0 0 0-8 8v6a3 3 0 0 0 3 3h2v-8H6v-1a6 6 0 1 1 12 0v1h-3v8h2a3 3 0 0 0 3-3v-6a8 8 0 0 0-8-8z">
+                                        </path>
+                                    </svg></span>
+                                <h3 class="pp-card-heading">Custom Internal Solutions</h3>
+                            </div>
+                            <hr class="pp-divider">
+                            <ul class="pp-features">
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Software tailored to HR, finance and operations.</li>
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Inventory workflows, approvals, MIT apps and reporting.</li>
+                            </ul>
+                            <div class="pp-card-cta">
+                                <hr class="pp-divider">
+                                <a class="text-link -small -arrow"
+                                    href="mailto:comm@ibjects.com?subject=Custom%20Internal%20Solutions">Discuss this
+                                    service →</a>
+                            </div>
+                        </article>
+
+                        <article class="card -border -hoverable pp-card" id="brand-activations">
+                            <div class="pp-card-heading-wrapper">
+                                <span class="pp-card-icon" aria-hidden="true"><svg viewbox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path d="M5 3h14v18l-7-4-7 4z"></path>
+                                    </svg></span>
+                                <h3 class="pp-card-heading">Brand Activations</h3>
+                            </div>
+                            <hr class="pp-divider">
+                            <ul class="pp-features">
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Mall stalls, pop-ups and consumer experiences.</li>
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Campaign planning, on-site execution and digital interaction.</li>
+                            </ul>
+                            <div class="pp-card-cta">
+                                <hr class="pp-divider">
+                                <a class="text-link -small -arrow"
+                                    href="mailto:comm@ibjects.com?subject=Brand%20Activations">Discuss this service
+                                    →</a>
+                            </div>
+                        </article>
+
+                        <article class="card -border -hoverable pp-card" id="mobile-apps">
+                            <div class="pp-card-heading-wrapper">
+                                <span class="pp-card-icon" aria-hidden="true"><svg viewbox="0 0 24 24"
+                                        fill="currentColor">
+                                        <ellipse cx="12" cy="6" rx="8" ry="3"></ellipse>
+                                        <path d="M4 10c0 1.7 3.6 3 8 3s8-1.3 8-3v4c0 1.7-3.6 3-8 3s-8-1.3-8-3z"></path>
+                                        <path d="M4 17c0 1.7 3.6 3 8 3s8-1.3 8-3v-1c0 1.7-3.6 3-8 3s-8-1.3-8-3z"></path>
+                                    </svg></span>
+                                <h3 class="pp-card-heading">Mobile App Development</h3>
+                            </div>
+                            <hr class="pp-divider">
+                            <ul class="pp-features">
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>iOS, Android and cross-platform applications.</li>
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Practical tools for customers, field teams and employees.</li>
+                            </ul>
+                            <div class="pp-card-cta">
+                                <hr class="pp-divider">
+                                <a class="text-link -small -arrow"
+                                    href="mailto:comm@ibjects.com?subject=Mobile%20App%20Development">Discuss this
+                                    service →</a>
+                            </div>
+                        </article>
+
+                        <article class="card -border -hoverable pp-card" id="web-development">
+                            <div class="pp-card-heading-wrapper">
+                                <span class="pp-card-icon" aria-hidden="true"><svg viewbox="0 0 24 24"
+                                        fill="currentColor">
+                                        <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                                        <rect x="2" y="9" width="20" height="2" fill="#fff"></rect>
+                                    </svg></span>
+                                <h3 class="pp-card-heading">Web Development</h3>
+                            </div>
+                            <hr class="pp-divider">
+                            <ul class="pp-features">
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Business websites, portals and web applications.</li>
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Responsive experiences built around your workflows.</li>
+                            </ul>
+                            <div class="pp-card-cta">
+                                <hr class="pp-divider">
+                                <a class="text-link -small -arrow"
+                                    href="mailto:comm@ibjects.com?subject=Web%20Development">Discuss this service →</a>
+                            </div>
+                        </article>
+
+                        <article class="card -border -hoverable pp-card" id="mvp-development">
+                            <div class="pp-card-heading-wrapper">
+                                <span class="pp-card-icon" aria-hidden="true"><svg viewbox="0 0 24 24"
+                                        fill="currentColor">
+                                        <circle cx="12" cy="8" r="4"></circle>
+                                        <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"></path>
+                                    </svg></span>
+                                <h3 class="pp-card-heading">Concept to Product (MVP)</h3>
+                            </div>
+                            <hr class="pp-divider">
+                            <ul class="pp-features">
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Turn an idea into a focused first product.</li>
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Validate the essentials before expanding the platform.</li>
+                            </ul>
+                            <div class="pp-card-cta">
+                                <hr class="pp-divider">
+                                <a class="text-link -small -arrow"
+                                    href="mailto:comm@ibjects.com?subject=Concept%20to%20Product%20(MVP)">Discuss this
+                                    service →</a>
+                            </div>
+                        </article>
+
+                        <article class="card -border -hoverable pp-card" id="devops-cloud">
+                            <div class="pp-card-heading-wrapper">
+                                <span class="pp-card-icon" aria-hidden="true"><svg viewbox="0 0 24 24"
+                                        fill="currentColor">
+                                        <path d="M12 2 14 9l7 2-7 2-2 7-2-7-7-2 7-2z"></path>
+                                    </svg></span>
+                                <h3 class="pp-card-heading">DevOps &amp; Cloud Solutions</h3>
+                            </div>
+                            <hr class="pp-divider">
+                            <ul class="pp-features">
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Cloud infrastructure and automated deployments.</li>
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Monitoring, maintenance and support as you grow.</li>
+                            </ul>
+                            <div class="pp-card-cta">
+                                <hr class="pp-divider">
+                                <a class="text-link -small -arrow"
+                                    href="mailto:comm@ibjects.com?subject=DevOps%20%26%20Cloud%20Solutions">Discuss
+                                    this service →</a>
+                            </div>
+                        </article>
+
+                        <article class="card -border -hoverable pp-card" id="game-development">
+                            <div class="pp-card-heading-wrapper">
+                                <span class="pp-card-icon" aria-hidden="true"><svg viewbox="0 0 24 24"
+                                        fill="currentColor">
+                                        <rect x="3" y="3" width="8" height="8" rx="2"></rect>
+                                        <rect x="13" y="3" width="8" height="8" rx="2"></rect>
+                                        <rect x="3" y="13" width="8" height="8" rx="2"></rect>
+                                        <rect x="13" y="13" width="8" height="8" rx="2"></rect>
+                                    </svg></span>
+                                <h3 class="pp-card-heading">Game Development</h3>
+                            </div>
+                            <hr class="pp-divider">
+                            <ul class="pp-features">
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Games for mobile, desktop and brand campaigns.</li>
+                                <li>Interactive experiences for engagement and training.</li>
+                            </ul>
+                            <div class="pp-card-cta">
+                                <hr class="pp-divider">
+                                <a class="text-link -small -arrow"
+                                    href="mailto:comm@ibjects.com?subject=Game%20Development">Discuss this service
+                                    →</a>
+                            </div>
+                        </article>
+
+                        <article class="card -border -hoverable pp-card" id="product-design">
+                            <div class="pp-card-heading-wrapper">
+                                <span class="pp-card-icon" aria-hidden="true"><svg viewbox="0 0 24 24"
+                                        fill="currentColor">
+                                        <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor"
+                                            stroke-width="2"></circle>
+                                        <path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2"></path>
+                                    </svg></span>
+                                <h3 class="pp-card-heading">UI/UX &amp; Product Design</h3>
+                            </div>
+                            <hr class="pp-divider">
+                            <ul class="pp-features">
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>User research, prototypes and interface design.</li>
+                                <li><svg viewbox="0 0 24 24" aria-hidden="true">
+                                        <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path>
+                                    </svg>Clear, usable experiences for the people who matter.</li>
+                            </ul>
+                            <div class="pp-card-cta">
+                                <hr class="pp-divider">
+                                <a class="text-link -small -arrow"
+                                    href="mailto:comm@ibjects.com?subject=UI/UX%20%26%20Product%20Design">Discuss this
+                                    service →</a>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section breeze-section" aria-labelledby="agents-heading" id="activations">
+            <div class="section-wrapper">
+                <div class="breeze-content">
+
+                    <div class="fsh">
+                        <div class="fsh-top">
+                            <div class="fsh-tagline-wrapper">
+                                <span class="breeze-tagline-icon" aria-hidden="true">
+                                    <svg viewbox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2 14 9l7 2-7 2-2 7-2-7-7-2 7-2z"></path>
+                                    </svg>
+                                </span>
+                                <span class="fsh-line" aria-hidden="true"></span>
+                            </div>
+                            <a class="btn -tertiary-outline" href="#contact">Plan an activation</a>
+                        </div>
+                        <div class="fsh-bottom -row">
+                            <h2 class="h2 fsh-heading" id="agents-heading">From the screen to the shopping mall.</h2>
+                            <p class="p-medium fsh-description">Bring your brand closer to customers. We deliver mall
+                                stalls, pop-ups and brand activations, with the software, games and digital experiences
+                                that make them work.</p>
+                        </div>
+                    </div>
+
+                    <div class="breeze-carousel" data-breeze>
+                        <div class="breeze-track">
+                            <div class="card breeze-slide" data-breeze-slide>
+                                <img src="assets/images/planning.jpg"
+                                    alt="Two people planning a campaign on a wall of printed concepts" width="704"
+                                    height="353" loading="lazy">
+                                <h3 class="breeze-slide-title">Plan the experience</h3>
+                                <p class="p-medium breeze-slide-description">Start with your audience, campaign goals
+                                    and venue. Shape a clear concept for how people discover and engage with your brand.
+                                </p>
+                                <a class="text-link" href="#contact">Discuss your activation →</a>
+                            </div>
+                            <div class="card breeze-slide -active" data-breeze-slide>
+                                <img src="assets/images/tims-coffee-scannwin.jpg"
+                                    alt="Phone showing a scan-and-win prize campaign" width="704" height="353"
+                                    loading="lazy">
+                                <h3 class="breeze-slide-title">Build the activation</h3>
+                                <p class="p-medium breeze-slide-description">Bring together the physical stall and
+                                    digital experience, from registration and QR journeys to interactive campaign games.
+                                </p>
+                                <a class="text-link" href="#contact">Discuss your activation →</a>
+                            </div>
+                            <div class="card breeze-slide" data-breeze-slide>
+                                <img src="assets/images/mall-stall.jpg"
+                                    alt="Shopper browsing stocked supermarket aisles" width="704" height="353"
+                                    loading="lazy">
+                                <h3 class="breeze-slide-title">Launch and learn</h3>
+                                <p class="p-medium breeze-slide-description">Coordinate the on-site experience and track
+                                    participation, redemptions and feedback to understand how the campaign performs.</p>
+                                <a class="text-link" href="#contact">Discuss your activation →</a>
+                            </div>
+                        </div>
+
+                        <div class="breeze-controls">
+                            <button class="round-btn" type="button" data-breeze-prev>
+                                <span class="visually-hidden">Previous slide</span>
+                                <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    aria-hidden="true">
+                                    <path d="m15 18-6-6 6-6"></path>
+                                </svg>
+                            </button>
+                            <button class="round-btn" type="button" data-breeze-next>
+                                <span class="visually-hidden">Next slide</span>
+                                <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    aria-hidden="true">
+                                    <path d="m9 18 6-6-6-6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="integrations-heading">
+            <div class="section-wrapper">
+                <div class="card -border rotating-svg-container">
+                    <div class="rotating-svg-heading-wrapper">
+                        <h2 class="h3 rotating-svg-heading" id="integrations-heading">Sales, inventory and operations.
+                            Working together.</h2>
+                        <a class="text-link" href="#contact" rel="noopener noreferrer">Discuss your integrations →</a>
+                    </div>
+                    <div class="rotating-svg-icons">
+                        <img src="assets/images/jaltech-image.jpeg"
+                            alt="Race car with JALTech sponsorship livery on track" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="cases-heading" id="process">
+            <div class="section-wrapper" style="padding-bottom:0">
+                <div class="fsh">
+                    <div class="fsh-top">
+                        <div class="fsh-tagline-wrapper">
+                            <span class="tagline">HOW WE WORK</span>
+                            <span class="fsh-line" aria-hidden="true"></span>
+                        </div>
+                        <a class="btn -tertiary-outline" href="#contact">Find the right approach</a>
+                    </div>
+                    <div class="fsh-bottom -row">
+                        <h2 class="h2 fsh-heading" id="cases-heading">Clear scope. Practical delivery. Long-term
+                            support.</h2>
+                        <p class="p-medium fsh-description">Start with a defined project, extend your team, or work with
+                            us as your ongoing technology partner.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section -pad-sm" aria-label="Engagement models">
+            <div class="section-wrapper">
+                <div class="tabs" data-tabs>
+                    <div class="tabs-control">
+                        <ul class="tab-list" role="tablist" aria-label="Engagement models">
+                            <li class="tab-item"><button class="tab-button" role="tab" aria-selected="true"
+                                    aria-controls="tt-1" id="engagement-tab-1">Project-based</button></li>
+                            <li class="tab-item"><button class="tab-button" role="tab" aria-selected="false"
+                                    aria-controls="tt-2" id="engagement-tab-2">Dedicated team</button></li>
+                            <li class="tab-item"><button class="tab-button" role="tab" aria-selected="false"
+                                    aria-controls="tt-3" id="engagement-tab-3">Ongoing partnership</button></li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-group">
+                        <div class="tab-content" id="tt-1" role="tabpanel" aria-labelledby="engagement-tab-1">
+                            <div class="card -border testimonial-card">
+                                <div class="testimonial-image">
+                                    <div class="engagement-visual" aria-hidden="true"><span
+                                            class="engagement-number">01</span><span>Project delivery</span></div>
+                                </div>
+                                <div>
+                                    <p class="testimonial-quote">For a campaign, app or platform with a defined goal. We
+                                        agree the scope, milestones and budget, then take the project from design
+                                        through launch.</p>
+                                    <p class="testimonial-author-name">A clear brief. A focused delivery.</p>
+                                    <p class="testimonial-author-title">Project-based</p>
+                                    <a class="text-link" href="#contact">Discuss this approach →</a>
+                                </div>
+                                <div class="testimonial-stats">
+                                    <div>
+                                        <p class="testimonial-stat-value">01</p>
+                                        <p class="testimonial-stat-desc">Scope</p>
+                                    </div>
+                                    <div>
+                                        <p class="testimonial-stat-value">02</p>
+                                        <p class="testimonial-stat-desc">Build</p>
+                                    </div>
+                                    <div>
+                                        <p class="testimonial-stat-value">03</p>
+                                        <p class="testimonial-stat-desc">Launch</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="tt-2" role="tabpanel" hidden aria-labelledby="engagement-tab-2">
+                            <div class="card -border testimonial-card">
+                                <div class="testimonial-image">
+                                    <div class="engagement-visual" aria-hidden="true"><span
+                                            class="engagement-number">02</span><span>Team extension</span></div>
+                                </div>
+                                <div>
+                                    <p class="testimonial-quote">Add product, design and engineering expertise to your
+                                        business. We work alongside your team with shared priorities, regular reviews
+                                        and clear communication.</p>
+                                    <p class="testimonial-author-name">Your team, with more capacity.</p>
+                                    <p class="testimonial-author-title">Dedicated team</p>
+                                    <a class="text-link" href="#contact">Discuss this approach →</a>
+                                </div>
+                                <div class="testimonial-stats">
+                                    <div>
+                                        <p class="testimonial-stat-value">01</p>
+                                        <p class="testimonial-stat-desc">Plan</p>
+                                    </div>
+                                    <div>
+                                        <p class="testimonial-stat-value">02</p>
+                                        <p class="testimonial-stat-desc">Collaborate</p>
+                                    </div>
+                                    <div>
+                                        <p class="testimonial-stat-value">03</p>
+                                        <p class="testimonial-stat-desc">Deliver</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="tt-3" role="tabpanel" hidden aria-labelledby="engagement-tab-3">
+                            <div class="card -border testimonial-card">
+                                <div class="testimonial-image">
+                                    <div class="engagement-visual" aria-hidden="true"><span
+                                            class="engagement-number">03</span><span>Long-term support</span></div>
+                                </div>
+                                <div>
+                                    <p class="testimonial-quote">Keep improving after launch. We support your software,
+                                        review performance and plan the next changes around your business priorities.
+                                    </p>
+                                    <p class="testimonial-author-name">Support beyond the first release.</p>
+                                    <p class="testimonial-author-title">Ongoing partnership</p>
+                                    <a class="text-link" href="#contact">Discuss this approach →</a>
+                                </div>
+                                <div class="testimonial-stats">
+                                    <div>
+                                        <p class="testimonial-stat-value">01</p>
+                                        <p class="testimonial-stat-desc">Support</p>
+                                    </div>
+                                    <div>
+                                        <p class="testimonial-stat-value">02</p>
+                                        <p class="testimonial-stat-desc">Improve</p>
+                                    </div>
+                                    <div>
+                                        <p class="testimonial-stat-value">03</p>
+                                        <p class="testimonial-stat-desc">Grow</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section -pad-sm -pad-bottom-lg" aria-labelledby="badges-heading">
+            <div class="section-wrapper">
+                <div class="badges-content">
+                    <h2 class="h3 badges-title" id="badges-heading">Built around your business, from day one.</h2>
+                    <div class="badges-grid"><span class="delivery-pill">FMCG expertise</span><span
+                            class="delivery-pill">Custom development</span><span class="delivery-pill">Full project
+                            lifecycle</span><span class="delivery-pill">Ongoing support</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="faq" aria-labelledby="faq-heading">
+            <div class="section-wrapper">
+                <h2 class="h2" id="faq-heading">Questions, answered.</h2>
+                <div class="faq-list">
+                    <details>
+                        <summary>What does JALTech do?</summary>
+                        <p>JALTech is a software house specializing in fast-moving consumer goods (FMCG). We build
+                            custom internal software, Android sales apps connected to inventory, distributor portals and
+                            consumer campaign platforms. Scan-and-win and management-in-training (MIT) apps are examples
+                            of what we build. We also deliver mall stalls and interactive brand activations.</p>
+                    </details>
+                    <details>
+                        <summary>Can you build internal Android apps connected to inventory?</summary>
+                        <p>Yes. We have built custom Android apps for internal sales teams connected to inventory. We
+                            can tailor the app to your team’s sales workflows and integrate it with the systems your
+                            business uses.</p>
+                    </details>
+                    <details>
+                        <summary>Can you manage both the software and a mall activation?</summary>
+                        <p>Yes. We can bring together campaign planning, the physical brand experience and its digital
+                            tools, including registration, QR journeys, games and reporting. The scope is agreed around
+                            your campaign and venue.</p>
+                    </details>
+                    <details>
+                        <summary>Do you only work with FMCG companies?</summary>
+                        <p>FMCG is our specialty. We also provide mobile and web development, MVP development, DevOps
+                            and cloud solutions, game development, and UI/UX design for businesses in other industries.
+                        </p>
+                    </details>
+                    <details>
+                        <summary>Can you work with our existing software?</summary>
+                        <p>Yes. We review your current systems and available APIs, then plan the integrations, data
+                            flows and access controls needed for the project.</p>
+                    </details>
+                    <details>
+                        <summary>How much will our project cost, and how long will it take?</summary>
+                        <p>Cost and timing depend on the scope, integrations and launch requirements. Share your goal
+                            and target date so we can propose a delivery plan and estimate.</p>
+                    </details>
+                    <details>
+                        <summary>Do you provide support after launch?</summary>
+                        <p>Yes. We offer ongoing maintenance, cloud support and product improvements. Support scope and
+                            response expectations are agreed as part of your engagement.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+        <section class="section elevated-cta" aria-labelledby="final-cta-heading" id="contact">
+            <div class="section-wrapper">
+                <h2 class="h1" id="final-cta-heading">What can we build for your business?</h2>
+                <p class="p-medium">Tell us what you want to achieve, what is holding you back and when you need to
+                    launch. We’ll help define the next step.</p>
+                <div class="elevated-cta-ctas"><a class="btn -primary" href="mailto:comm@ibjects.com">Email
+                        comm@ibjects.com</a><a class="btn -secondary" href="#services">Explore services</a></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="global-footer">
+        <div class="footer-layout">
+            <nav class="footer-nav" aria-label="Footer">
+                <section class="footer-column">
+                    <h2>FMCG Solutions</h2>
+                    <ul>
+                        <li><a class="" href="#consumer-promotions">Consumer Promotions</a></li>
+                        <li><a class="" href="#field-sales">Internal Sales &amp; Inventory Apps</a></li>
+                        <li><a class="" href="#enterprise-software">Custom Internal Solutions</a></li>
+                        <li><a class="" href="#brand-activations">Brand Activations</a></li>
+                    </ul>
+                </section>
+                <section class="footer-column">
+                    <h2>Software Services</h2>
+                    <ul>
+                        <li><a class="" href="#mobile-apps">Mobile App Development</a></li>
+                        <li><a class="" href="#web-development">Web Development</a></li>
+                        <li><a class="" href="#mvp-development">Concept to Product (MVP)</a></li>
+                        <li><a class="" href="#devops-cloud">DevOps &amp; Cloud Solutions</a></li>
+                        <li><a class="" href="#game-development">Game Development</a></li>
+                        <li><a class="" href="#product-design">UI/UX &amp; Product Design</a></li>
+                    </ul>
+                </section>
+                <section class="footer-column">
+                    <h2>JALTech</h2>
+                    <ul>
+                        <li><a class="" href="#solutions">About us</a></li>
+                        <li><a class="" href="#clients">Our clients</a></li>
+                        <li><a class="" href="#process">How we work</a></li>
+                        <li><a class="" href="#faq">FAQs</a></li>
+                        <li><a class="" href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </section>
+                <section class="footer-column">
+                    <h2>Contact</h2>
+                    <ul>
+                        <li><a class="" href="mailto:comm@ibjects.com">comm@ibjects.com</a></li>
+                        <li><a class="" href="#contact">Discuss a project</a></li>
+                    </ul>
+                </section>
+            </nav>
+
+            <section class="footer-bottom">
+                <div class="footer-logo"><a class="mark" href="#top" aria-label="JALTech home"><img
+                            src="assets/images/logo-light.svg" alt="JALTech" width="104" height="38"></a>
+                    <p>FMCG software solutions &amp; brand activations.</p>
+                    <p>© <span id="year">2026</span> JALTech. All rights reserved.</p>
+                </div>
+
+            </section>
         </div>
-      </section>
-      <!-- End Features-->
+    </footer>
 
-      <!-- ======= Pricing =======-->
-      <section class="section pricing__v2" id="pricing">
-        <div class="container">
-          <div class="row mb-5">
-            <div class="col-md-5 mx-auto text-center"><span class="subtitle text-uppercase mb-3" data-aos="fade-up"
-                data-aos-delay="0">Engagement Models</span>
-              <h2 class="mb-3" data-aos="fade-up" data-aos-delay="100">Partnerships Tailored to Enterprise Needs</h2>
-              <p data-aos="fade-up" data-aos-delay="200">We offer flexible engagement models designed to align with your
-                strategic objectives. Our interactive chart highlights
-                the key characteristics of each approach.</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="300">
-              <div class="p-5 rounded-4 price-table h-100">
-                <h3>Project-Based</h3>
-                <p>Ideal for specific, well-defined digital initiatives like a new website, mobile application, or a
-                  custom software build.</p>
-                <!-- <div class="price mb-4"><strong>$7</strong><span>/ month</span></div> -->
-                <div><a class="btn" href="https://forms.gle/Q1jsygKkNyXPxfq28" target="_blank">Get
-                    Started</a></div>
+    <script>
+        (function () {
+            'use strict';
 
-              </div>
-            </div>
-            <!-- <div class="md:col-span-3">
-              <div class="chart-container relative h-96 md:h-[450px] w-full max-w-2xl mx-auto">
-                <canvas id="engagementModelChart"></canvas>
-              </div>
-            </div> -->
-            <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
-              <div class="p-5 rounded-4 price-table popular h-100">
-                <div class="row">
-                  <div class="col-md-6">
-                    <h3 class="mb-3">Dedicated Team</h3>
-                    <p>A flexible model where we provide a dedicated team of our experts who integrate with and work as
-                      an extension of your
-                      in-house team, managed by you or co-managed with us.</p>
-                    <!-- <div class="price mb-4"><strong class="me-1">$29</strong><span>/ month</span></div> -->
-                    <!-- <div><a class="btn btn-white hover-outline" href="#">Learn More</a></div> -->
-                  </div>
-                  <div class="col-md-6 pricing-features">
-                    <!-- <h4 class="text-uppercase fw-bold mb-3">Features</h4> -->
-                    <h3 class="mb-3">Strategic Partnership</h3>
-                    <p>
-                      A retained model for long-term digital transformation. We act as your end-to-end technology
-                      partner, providing
-                      continuous development and ongoing strategic advisory.
-                    </p>
-                    <!-- <ul class="list-unstyled d-flex flex-column gap-3">
-                      <li class="d-flex gap-2 align-items-start mb-0"><span
-                          class="icon rounded-circle position-relative mt-1"><i
-                            class="bi bi-check"></i></span><span>Personalized financial insights and reports</span></li>
-                      <li class="d-flex gap-2 align-items-start mb-0"><span
-                          class="icon rounded-circle position-relative mt-1"><i
-                            class="bi bi-check"></i></span><span>Priority customer support</span></li>
-                      <li class="d-flex gap-2 align-items-start mb-0"><span
-                          class="icon rounded-circle position-relative mt-1"><i
-                            class="bi bi-check"></i></span><span>Access to exclusive investment opportunities</span>
-                      </li>
-                      <li class="d-flex gap-2 align-items-start mb-0"><span
-                          class="icon rounded-circle position-relative mt-1"><i
-                            class="bi bi-check"></i></span><span>AI-driven financial recommendations</span></li>
-                    </ul> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- End Pricing-->
+            /* ---- current year -------------------------------------------- */
+            var year = document.getElementById('year');
+            if (year) year.textContent = new Date().getFullYear();
 
-      <!-- ======= How it works =======-->
-      <section class="section howitworks__v1" id="how-it-works">
-        <div class="container">
-          <div class="row mb-5">
-            <div class="col-md-6 text-center mx-auto"><span class="subtitle text-uppercase mb-3" data-aos="fade-up"
-                data-aos-delay="0">Our Process</span>
-              <h2 data-aos="fade-up" data-aos-delay="100">From Vision to Market Impact</h2>
-              <!-- <p data-aos="fade-up" data-aos-delay="200">Our platform is designed to make managing your finances simple
-                and efficient. Follow these easy steps to get started: </p> -->
-            </div>
-          </div>
-          <div class="row g-md-5">
-            <div class="col-md-6 col-lg-3">
-              <div class="step-card text-center h-100 d-flex flex-column justify-content-start position-relative"
-                data-aos="fade-up" data-aos-delay="0">
-                <div data-aos="fade-right" data-aos-delay="500"><img class="arch-line" src="assets/images/arch-line.svg"
-                    alt="FreeBootstrap.net image placeholder"></div><span
-                  class="step-number rounded-circle text-center fw-bold mb-5 mx-auto">1</span>
-                <div>
-                  <h3 class="fs-5 mb-4">Discovery & Strategy</h3>
-                  <p>We begin with deep-dive sessions to understand your strategic objectives, KPIs, and technical
-                    requirements.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
-              <div
-                class="step-card reverse text-center h-100 d-flex flex-column justify-content-start position-relative">
-                <div data-aos="fade-right" data-aos-delay="1100"><img class="arch-line reverse"
-                    src="assets/images/arch-line-reverse.svg" alt="FreeBootstrap.net image placeholder"></div><span
-                  class="step-number rounded-circle text-center fw-bold mb-5 mx-auto">2</span>
-                <h3 class="fs-5 mb-4">Architectural Design</h3>
-                <p>Our enterprise architects design a robust, scalable, and secure system architecture tailored to your
-                  goals.</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="1200">
-              <div class="step-card text-center h-100 d-flex flex-column justify-content-start position-relative">
-                <div data-aos="fade-right" data-aos-delay="1700"><img class="arch-line"
-                    src="assets/images/arch-line.svg" alt="FreeBootstrap.net image placeholder"></div><span
-                  class="step-number rounded-circle text-center fw-bold mb-5 mx-auto">3</span>
-                <h3 class="fs-5 mb-4">Agile Development</h3>
-                <p>We build and deploy your solution using agile methodologies, ensuring continuous feedback and
-                  alignment.
-                </p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="1800">
-              <div class="step-card last text-center h-100 d-flex flex-column justify-content-start position-relative">
-                <span class="step-number rounded-circle text-center fw-bold mb-5 mx-auto">4</span>
-                <div>
-                  <h3 class="fs-5 mb-4">Analytics & Optimization</h3>
-                  <p>Post-launch, we provide detailed performance analytics and ongoing optimization to maximize your
-                    ROI.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- End How it works-->
+            /* ---- mobile burger ------------------------------------------- */
+            var burger = document.getElementById('navBurger');
+            var mobile = document.getElementById('navMobile');
+            if (burger && mobile) {
+                burger.addEventListener('click', function () {
+                    var open = mobile.classList.toggle('-open');
+                    burger.setAttribute('aria-expanded', String(open));
+                });
+            }
 
-      <!-- ======= Stats =======-->
-      <section class="stats__v3 section">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <!-- Replace the stats block with this -->
-              <div class="content rounded-4 position-relative" data-aos="fade-up" data-aos-delay="0">
-                <!-- keep the decorative borders but take them out of the flow -->
-                <div class="rounded-borders position-absolute top-0 start-0 w-100 h-100 pointer-events-none">
-                  <div class="rounded-border-1"></div>
-                  <div class="rounded-border-2"></div>
-                  <div class="rounded-border-3"></div>
-                </div>
+            /* ---- sticky nav shadow --------------------------------------- */
+            var navMain = document.getElementById('navMain');
+            if (navMain) {
+                var topBar = document.querySelector('.nav-top-bar');
+                var threshold = topBar ? topBar.offsetHeight : 52;
+                window.addEventListener('scroll', function () {
+                    navMain.classList.toggle('-stuck', window.scrollY > threshold);
+                }, { passive: true });
+            }
 
-                <div class="row g-4">
-                  <div class="col-12 col-sm-6 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-item">
-                      <h3 class="fs-1 fw-bold">
-                        <span class="purecounter" data-purecounter-start="0" data-purecounter-end="10"
-                          data-purecounter-duration="2">50</span><span>+</span>
-                      </h3>
-                      <p class="mb-0">Enterprise Clients</p>
-                    </div>
-                  </div>
+            /* ---- solutions dropdown sidebar tabs ------------------------- */
+            document.querySelectorAll('[data-sidebar]').forEach(function (sidebar) {
+                var buttons = sidebar.querySelectorAll('.nav-sidebar-btn');
+                buttons.forEach(function (btn) {
+                    var activate = function () {
+                        buttons.forEach(function (b) {
+                            b.setAttribute('aria-selected', String(b === btn));
+                            var panel = sidebar.querySelector('#' + b.dataset.panel);
+                            if (panel) panel.hidden = b !== btn;
+                        });
+                    };
+                    btn.addEventListener('mouseenter', activate);
+                    btn.addEventListener('click', activate);
+                    btn.addEventListener('focus', activate);
+                });
+            });
 
-                  <div class="col-12 col-sm-6 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-item">
-                      <h3 class="fs-1 fw-bold">
-                        <span class="purecounter" data-purecounter-start="0" data-purecounter-end="200"
-                          data-purecounter-duration="2">220</span><span>+</span>
-                      </h3>
-                      <p class="mb-0">Deployed Projects</p>
-                    </div>
-                  </div>
+            /* ---- customer platform carousel ------------------------------ */
+            var cp = document.querySelector('[data-carousel="cp"]');
+            if (cp) {
+                var slides = cp.querySelectorAll('[data-slide]');
+                var dotsWrap = cp.querySelector('[data-dots]');
+                var index = 0;
 
-                  <div class="col-12 col-sm-6 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-item">
-                      <h3 class="fs-1 fw-bold">
-                        <span class="purecounter" data-purecounter-start="0" data-purecounter-end="80"
-                          data-purecounter-duration="2">100</span><span>%</span>
-                      </h3>
-                      <p class="mb-0">Client Retention</p>
-                    </div>
-                  </div>
+                slides.forEach(function (_, i) {
+                    var dot = document.createElement('button');
+                    dot.type = 'button';
+                    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                    dot.addEventListener('click', function () { go(i); });
+                    dotsWrap.appendChild(dot);
+                });
 
-                  <div class="col-12 col-sm-6 col-lg-3 text-center" data-aos="fade-up" data-aos-delay="400">
-                    <div class="stat-item">
-                      <h3 class="fs-1 fw-bold">
-                        <span class="purecounter" data-purecounter-start="0" data-purecounter-end="20"
-                          data-purecounter-duration="2">10</span><span>+</span>
-                      </h3>
-                      <p class="mb-0">Industries Served</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      </section>
-      <!-- End Stats-->
+                function go(next) {
+                    index = (next + slides.length) % slides.length;
+                    slides.forEach(function (s, i) { s.classList.toggle('-active', i === index); });
+                    dotsWrap.querySelectorAll('button').forEach(function (d, i) {
+                        d.setAttribute('aria-current', String(i === index));
+                    });
+                }
 
-      <!-- ======= Services =======-->
-      <section class="section services__v3" id="services">
-        <div class="container">
-          <div class="row mb-5">
-            <div class="col-md-8 mx-auto text-center"><span class="subtitle text-uppercase mb-3" data-aos="fade-up"
-                data-aos-delay="0">Our Services</span>
-              <h2 class="mb-3" data-aos="fade-up" data-aos-delay="100">A Full Spectrum of IT Software Services</h2>
-            </div>
-          </div>
-          <div class="row g-4">
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
-              <div class="service-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between gap-5">
-                <div><span class="icon mb-4">
-                    <img src="./assets/images/services/mobile_dev.svg" alt="Mobile Development"
-                      style="width: 60px; height: 60px;">
-                  </span>
-                  <h3 class="fs-5 mb-3">Mobile App Development</h3>
-                  <p class="mb-4">Building intuitive and engaging native and cross-platform mobile applications for both
-                    iOS and Android ecosystems including PWAs.</p>
-                </div><a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none"
-                  href="https://ibjects-insights.medium.com/mobile-app-development-from-idea-to-your-users-hands-668b80aa079f"
-                  target="_blank"><span class="icons"><i class="icon-1 bi bi-arrow-right-short"></i><i
-                      class="icon-2 bi bi-arrow-right-short"> </i></span><span>Read more</span></a>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="service-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between gap-5">
-                <div><span class="icon mb-4">
-                    <img src="./assets/images/services/web_dev.svg" alt="Web Development"
-                      style="width: 60px; height: 60px;"></span>
-                  <h3 class="fs-5 mb-3">Web Development</h3>
-                  <p class="mb-4">Crafting responsive, high-performance websites, e-commerce platforms, and complex web
-                    applications tailored to your
-                    business needs.</p>
-                </div><a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none"
-                  href="https://ibjects-insights.medium.com/web-development-building-the-digital-foundation-for-your-business-d642857d7328"
-                  target="_blank"><span class="icons"><i class="icon-1 bi bi-arrow-right-short"></i><i
-                      class="icon-2 bi bi-arrow-right-short"> </i></span><span>Read more</span></a>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-              <div class="service-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between gap-5">
-                <div><span class="icon mb-4">
-                    <img src="./assets/images/services/product.svg" alt="Product Development"
-                      style="width: 60px; height: 60px;"></span>
-                  <h3 class="fs-5 mb-3">Concept to Product (MVP)</h3>
-                  <p class="mb-4">Transforming your idea into a market-ready Minimum Viable Product (MVP) with strategic
-                    planning, design, and rapid
-                    development.</p>
-                </div><a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none"
-                  href="https://ibjects-insights.medium.com/concept-to-product-mvp-bringing-your-big-idea-to-life-a284fdb21d49"
-                  target="_blank"><span class="icons"><i class="icon-1 bi bi-arrow-right-short"></i><i
-                      class="icon-2 bi bi-arrow-right-short"> </i></span><span>Read more</span></a>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-              <div class="service-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between gap-5">
-                <div><span class="icon mb-4">
-                    <img src="./assets/images/services/cloud.svg" alt="Cloud Solutions"
-                      style="width: 60px; height: 60px;"></span>
-                  <h3 class="fs-5 mb-3">DevOps & Cloud Solutions</h3>
-                  <p class="mb-4">Automating and optimizing your operations with CI/CD pipelines, cloud infrastructure
-                    management, and scalable solutions.</p>
-                </div>
-                <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none"
-                  href="https://medium.com/@ibjects-insights/devops-cloud-solutions-automating-and-optimizing-for-scalability-bc478ff703a1"
-                  target="_blank"><span class="icons"><i class="icon-1 bi bi-arrow-right-short"></i><i
-                      class="icon-2 bi bi-arrow-right-short"> </i></span><span>Read more</span></a>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
-              <div class="service-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between gap-5">
-                <div><span class="icon mb-4">
-                    <img src="./assets/images/services/game_dev.svg" alt="Game Development"
-                      style="width: 60px; height: 60px;">
-                  </span>
-                  <h3 class="fs-5 mb-3">Game Development</h3>
-                  <p class="mb-4">Creating immersive games and interactive simulations for entertainment, training, and
-                    marketing on mobile and desktop
-                    platforms.</p>
-                </div>
-                <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none"
-                  href="https://medium.com/@ibjects-insights/game-development-crafting-immersive-worlds-and-experiences-55124ca5d4c3"
-                  target="_blank"><span class="icons"><i class="icon-1 bi bi-arrow-right-short"></i><i
-                      class="icon-2 bi bi-arrow-right-short"> </i></span><span>Read more</span></a>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
-              <div class="service-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between gap-5">
-                <div><span class="icon mb-4">
-                    <img src="./assets/images/services/ui_ux_design.svg" alt="UI/UX Design"
-                      style="width: 60px; height: 60px;"></span>
-                  <h3 class="fs-5 mb-3">UI/UX & Product Design</h3>
-                  <p class="mb-4">Designing user-centric digital experiences that are not only beautiful but also
-                    functional, ensuring high user adoption
-                    and satisfaction.</p>
-                </div>
-                <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none"
-                  href="https://medium.com/@ibjects-insights/ui-ux-product-design-designing-experiences-that-users-love-9be81c5406de"
-                  target="_blank"><span class="icons"><i class="icon-1 bi bi-arrow-right-short"></i><i
-                      class="icon-2 bi bi-arrow-right-short"> </i></span><span>Read more</span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Services-->
+                cp.querySelector('[data-prev]').addEventListener('click', function () { go(index - 1); });
+                cp.querySelector('[data-next]').addEventListener('click', function () { go(index + 1); });
+                go(0);
+            }
 
-      <!-- ======= Testimonials =======-->
-      <!-- <section class="section testimonials__v2" id="testimonials">
-        <div class="container">
-          <div class="row mb-5">
-            <div class="col-lg-5 mx-auto text-center"><span class="subtitle text-uppercase mb-3" data-aos="fade-up"
-                data-aos-delay="0">Testimonials</span>
-              <h2 class="mb-3" data-aos="fade-up" data-aos-delay="100">What Our Users Are Saying</h2>
-              <p data-aos="fade-up" data-aos-delay="200">Real Stories of Success and Satisfaction from Our Diverse
-                Community</p>
-            </div>
-          </div>
-          <div class="row g-4" data-masonry="{&quot;percentPosition&quot;: true }">
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
-              <div class="testimonial rounded-4 p-4">
-                <blockquote class="mb-3">
-                  &ldquo;
-                  This platform has completely transformed the way I manage my business finances. The real-time
-                  transaction tracking and seamless payment options have saved me so much time and effort!
-                  &rdquo;
-                </blockquote>
-                <div class="testimonial-author d-flex gap-3 align-items-center">
-                  <div class="author-img"><img class="rounded-circle img-fluid" src="assets/images/person-sq-2-min.jpg"
-                      alt="FreeBootstrap.net image placeholder"></div>
-                  <div class="lh-base"><strong class="d-block">John Davis</strong><span>Small Business Owner</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-              <div class="testimonial rounded-4 p-4">
-                <blockquote class="mb-3">
-                  &ldquo;
-                  As a freelancer, managing my finances can be overwhelming. The budgeting tools and personalized
-                  insights have made it so much easier to stay on top of my expenses and plan for the future.
-                  &rdquo;
-                </blockquote>
-                <div class="testimonial-author d-flex gap-3 align-items-center">
-                  <div class="author-img"><img class="rounded-circle img-fluid" src="assets/images/person-sq-1-min.jpg"
-                      alt="FreeBootstrap.net image placeholder"></div>
-                  <div class="lh-base"><strong class="d-block">Emily Smith</strong><span>Freelancer</span></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="testimonial rounded-4 p-4">
-                <blockquote class="mb-3">
-                  &ldquo;
-                  The investment options and portfolio management tools on this platform are top-notch. The variety of
-                  choices caters to all types of investors, from conservative to aggressive. I especially appreciate how
-                  the tailored recommendations align perfectly with my financial goals. It’s a game-changer for anyone
-                  serious about growing their wealth.
-                  &rdquo;
-                </blockquote>
-                <div class="testimonial-author d-flex gap-3 align-items-center">
-                  <div class="author-img"><img class="rounded-circle img-fluid" src="assets/images/person-sq-5-min.jpg"
-                      alt="FreeBootstrap.net image placeholder"></div>
-                  <div class="lh-base"><strong class="d-block">Michael Rodriguez</strong><span>Investor</span></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-              <div class="testimonial rounded-4 p-4">
-                <blockquote class="mb-3">
-                  &ldquo;
-                  I never thought managing money could be this simple! The user-friendly interface and secure
-                  transaction process give me the confidence to handle my finances independently.
-                  &rdquo;
-                </blockquote>
-                <div class="testimonial-author d-flex gap-3 align-items-center">
-                  <div class="author-img"><img class="rounded-circle img-fluid" src="assets/images/person-sq-3-min.jpg"
-                      alt="FreeBootstrap.net image placeholder"></div>
-                  <div class="lh-base"><strong class="d-block">Sarah Lee</strong><span>College Student</span></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-              <div class="testimonial rounded-4 p-4">
-                <blockquote class="mb-3">
-                  &ldquo;
-                  The security features are outstanding. Knowing that my financial data is protected gives me peace of
-                  mind, and the platform's efficiency makes it a pleasure to use.
-                  &rdquo;
-                </blockquote>
-                <div class="testimonial-author d-flex gap-3 align-items-center">
-                  <div class="author-img"><img class="rounded-circle img-fluid" src="assets/images/person-sq-7-min.jpg"
-                      alt="FreeBootstrap.net image placeholder"></div>
-                  <div class="lh-base"><strong class="d-block">James Kim</strong><span>IT Consultant</span></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
-              <div class="testimonial rounded-4 p-4">
-                <blockquote class="mb-3">
-                  &ldquo;
-                  The platform’s intuitive design and robust features have been a game-changer for my startup. It’s
-                  helped me streamline operations and focus on growing my business.
-                  &rdquo;
-                </blockquote>
-                <div class="testimonial-author d-flex gap-3 align-items-center">
-                  <div class="author-img"><img class="rounded-circle img-fluid" src="assets/images/person-sq-8-min.jpg"
-                      alt="FreeBootstrap.net image placeholder"></div>
-                  <div class="lh-base"><strong class="d-block">Laura Brown</strong><span>Entrepreneur</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
-      <!-- Testimonials-->
+            /* ---- Brand activations carousel -------------------------------------- */
+            var breeze = document.querySelector('[data-breeze]');
+            if (breeze) {
+                var bSlides = Array.prototype.slice.call(breeze.querySelectorAll('[data-breeze-slide]'));
+                var bIndex = 1;
+                var timer = null;
 
-      <!-- ======= FAQ =======-->
-      <section class="section faq__v2" id="faq">
-        <div class="container">
-          <div class="row mb-4">
-            <div class="col-md-6 col-lg-7 mx-auto text-center"><span class="subtitle text-uppercase mb-3"
-                data-aos="fade-up" data-aos-delay="0">FAQ</span>
-              <h2 class="h2 fw-bold mb-3" data-aos="fade-up" data-aos-delay="0">Frequently Asked Questions</h2>
-              <!-- <p data-aos="fade-up" data-aos-delay="100">Utilize our tools to develop your concepts and bring your
-                vision to life. Once complete, effortlessly share your creations.</p> -->
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-8 mx-auto" data-aos="fade-up" data-aos-delay="200">
-              <div class="faq-content">
-                <div class="accordion custom-accordion" id="accordionPanelsStayOpenExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                        aria-controls="panelsStayOpen-collapseOne">What types of industries do you serve?</button>
-                    </h2>
-                    <div class="accordion-collapse collapse show" id="panelsStayOpen-collapseOne">
-                      <div class="accordion-body">Our web agency offers a comprehensive range of services including web
-                        design and development, e-commerce solutions, SEO optimization, content creation, website
-                        maintenance, and digital marketing strategies. We tailor our services to meet the unique needs
-                        of each client, ensuring a customized approach to every project.</div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseTwo">Our project is just an idea. Can you help?</button>
-                    </h2>
-                    <div class="accordion-collapse collapse" id="panelsStayOpen-collapseTwo">
-                      <div class="accordion-body">Absolutely. Our "Concept to Product" service is designed specifically
-                        for this. We partner with you to refine the idea,
-                        define a product strategy, create a roadmap, and build a Minimum Viable Product (MVP) to
-                        validate your concept with real
-                        users.</div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseThree">What is your technology stack?</button>
-                    </h2>
-                    <div class="accordion-collapse collapse" id="panelsStayOpen-collapseThree">
-                      <div class="accordion-body">We are technology-agnostic and select the best stack for each
-                        project's specific needs. Our expertise includes modern
-                        frameworks like React, Vue, and Angular for web; Swift and Kotlin for native mobile; and
-                        cross-platform solutions like
-                        React Native. For backend and cloud, we are proficient in Node.js, Python, AWS, and Google
-                        Cloud.</div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseFour">Do you offer ongoing support and
-                        maintenance?</button>
-                    </h2>
-                    <div class="accordion-collapse collapse" id="panelsStayOpen-collapseFour">
-                      <div class="accordion-body">Yes. We offer comprehensive support and maintenance packages to ensure
-                        your digital assets remain secure, up-to-date,
-                        and performant long after launch. This is a core component of our Strategic Partnership model.
-                      </div>
-                    </div>
-                  </div>
-                  <!-- <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
-                        aria-controls="panelsStayOpen-collapseFive"> Do you provide ongoing support and maintenance for
-                        websites? </button>
-                    </h2>
-                    <div class="accordion-collapse collapse" id="panelsStayOpen-collapseFive">
-                      <div class="accordion-body">Yes, we offer ongoing support and maintenance services to ensure your
-                        website remains up-to-date, secure, and functioning smoothly. Our maintenance packages can
-                        include regular updates, security monitoring, backups, and technical support to address any
-                        issues that may arise. We&apos;re here to help you keep your website running efficiently long
-                        after it&apos;s launched.</div>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End FAQ-->
-      </section>
-      <!-- End FAQ-->
+                function setActive(next) {
+                    bIndex = (next + bSlides.length) % bSlides.length;
+                    bSlides.forEach(function (s, i) { s.classList.toggle('-active', i === bIndex); });
+                }
 
-      <!-- ======= Contact =======-->
-      <section class="section contact__v2" id="contact">
-        <div class="container">
-          <div class="row mb-5">
-            <div class="col-md-6 col-lg-7 mx-auto text-center"><span class="subtitle text-uppercase mb-3"
-                data-aos="fade-up" data-aos-delay="0">Contact</span>
-              <h2 class="h2 fw-bold mb-3" data-aos="fade-up" data-aos-delay="0">Let's Architect Your Next Success</h2>
-              <p data-aos="fade-up" data-aos-delay="100">Engage our team for a strategic discussion about your
-                objectives. We are ready to help you define your vision and deploy
-                the technology to achieve it.</p>
-            </div>
-          </div>
-          <!-- <div class="row">
-            <div class="col-md-6">
-              <!-- <div class="d-flex gap-5 flex-column"> -->
-          <!-- <div class="d-flex align-items-start gap-3" data-aos="fade-up" data-aos-delay="0">
-                  <div class="icon d-block"><i class="bi bi-telephone"></i></div><span> <span
-                      class="d-block">Phone</span><strong>+(01 234 567 890)</strong></span>
-                </div> -->
-          <div class="d-flex align-items-center justify-content-center gap-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon d-block"><i class="bi bi-send"></i></div><span> <span
-                class="d-block">Email</span><strong>comm[@]ibjects.com</strong></span>
-          </div>
-          <!-- <div class="d-flex align-items-start gap-3" data-aos="fade-up" data-aos-delay="200">
-                  <div class="icon d-block"><i class="bi bi-geo-alt"></i></div><span> <span
-                      class="d-block">Address</span>
-                    <address class="fw-bold">123 Main Street Apt 4B Springfield, <br> IL 62701 United States</address>
-                  </span>
-                </div> -->
-          <!-- </div> -->
-          <!-- </div> -->
-          <!-- <div class="col-md-6">
-              <div class="form-wrapper" data-aos="fade-up" data-aos-delay="300">
-                <form id="contactForm">
-                  <div class="row gap-3 mb-3">
-                    <div class="col-md-12">
-                      <label class="mb-2" for="name">Name</label>
-                      <input class="form-control" id="name" type="text" name="name" required="">
-                    </div>
-                    <div class="col-md-12">
-                      <label class="mb-2" for="email">Email</label>
-                      <input class="form-control" id="email" type="email" name="email" required="">
-                    </div>
-                  </div>
-                  <div class="row gap-3 mb-3">
-                    <div class="col-md-12">
-                      <label class="mb-2" for="subject">Subject</label>
-                      <input class="form-control" id="subject" type="text" name="subject">
-                    </div>
-                  </div>
-                  <div class="row gap-3 gap-md-0 mb-3">
-                    <div class="col-md-12">
-                      <label class="mb-2" for="message">Message</label>
-                      <textarea class="form-control" id="message" name="message" rows="5" required=""></textarea>
-                    </div>
-                  </div>
-                  <button class="btn btn-primary fw-semibold" type="submit">Send Message</button>
-                </form>
-                <div class="mt-3 d-none alert alert-success" id="successMessage">Message sent successfully!</div>
-                <div class="mt-3 d-none alert alert-danger" id="errorMessage">Message sending failed. Please try again
-                  later.</div>
-              </div>
-            </div> -->
-          <!-- </div>  -->
-        </div>
-      </section>
-      <!-- End Contact-->
+                function autoplay() {
+                    timer = window.setInterval(function () { setActive(bIndex + 1); }, 5000);
+                }
 
-      <!-- ======= Footer =======-->
-      <footer class="footer pt-5 pb-5">
-        <div class="container">
-          <!-- <div class="row mb-5 pb-4">
-            <div class="col-md-7">
-              <h2 class="fs-5">Join our newsletter</h2>
-              <p>Stay updated with our latest templates and offers—join our newsletter today!</p>
-            </div>
-            <div class="col-md-5">
-              <form class="d-flex gap-2">
-                <input class="form-control" type="email" placeholder="Email your email" required="">
-                <button class="btn btn-primary fs-6" type="submit">Subscribe</button>
-              </form>
-            </div>
-          </div> -->
-          <!-- <div class="row justify-content-between mb-5 g-xl-5">
-            <div class="col-md-4 mb-5 mb-lg-0">
-              <h3 class="mb-3">About</h3>
-              <p class="mb-4">Architecting Your Competitive Edge Through Enterprise Technology.</p>
-            </div>
-            <div class="col-md-7">
-              <div class="row g-2"> -->
-          <!-- <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                  <h3 class="mb-3">Company</h3>
-                  <ul class="list-unstyled">
-                    <li><a href="page-about.html">Leadership</a></li>
-                    <li><a href="page-careers.html">Careers <span class="badge ms-1">we're hiring</span></a></li>
-                    <li><a href="page-case-studies.html">Case Studies</a></li>
-                    <li><a href="page-terms-conditions.html">Terms &amp; Conditions</a></li>
-                    <li><a href="page-privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="page-404.html">404 page</a></li>
-                  </ul>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                  <h3 class="mb-3">Accounts</h3>
-                  <ul class="list-unstyled">
-                    <li><a href="page-signup.html">Register</a></li>
-                    <li><a href="page-signin.html">Sign in</a></li>
-                    <li><a href="page-forgot-password.html">Fogot Password</a></li>
-                    <li><a href="page-coming-soon.html">Coming soon</a></li>
-                    <li><a href="page-portfolio-masonry.html">Portfolio Masonry</a></li>
-                  </ul>
-                </div> -->
-          <!-- <div class="col-md-6 col-lg-4 mb-4 mb-lg-0 quick-contact">
-                  <h3 class="mb-3">Contact</h3> -->
-          <!-- <p class="d-flex mb-3"><i class="bi bi-geo-alt-fill me-3"></i><span>123 Main Street Apt 4B
-                      Springfield, <br> IL 62701 United States</span></p><a class="d-flex mb-3"
-                    href="mailto:info@mydomain.com"> -->
-          <!-- <i class="bi bi-envelope-fill me-3"></i><span>comm[@]ibjects.com</span></a> -->
-          <!-- <a class="d-flex mb-3"
-                    href="tel://+123456789900"><i class="bi bi-telephone-fill me-3"></i><span>+1 (234) 5678
-                      9900</span></a><a class="d-flex mb-3" href="https://ibjects.com"><i
-                      class="bi bi-globe me-3"></i><span>ibjects.com</span></a> -->
-          <!-- </div> -->
-          <!-- </div> -->
-          <!-- </div> -->
-          <!-- </div> -->
-          <!-- <div class="row credits pt-3"> -->
-          <div class="col-xl-8 text-center text-xl-start mb-3 mb-xl-0">
-            <!--
-                Note:
-                =>>> Please keep all the footer links intact. <<<=
-                Designed with <i class="bi bi-heart-fill text-danger"></i> by <a
-                href="https://ibjects.com">ibjects.com</a>
-                =>>> You can only remove the links if you buy the pro version. <<<=
-                =>>> Buy the pro version, which includes a functional PHP/AJAX contact form and many additional features.: https://ibjects.com <<<=
-                -->
-            &copy;
-            <script>document.write(new Date().getFullYear());</script> JALTech | All rights reserved
-          </div>
-          <!-- <div
-              class="col-xl-4 justify-content-start justify-content-xl-end quick-links d-flex flex-column flex-xl-row text-center text-xl-start gap-1">
-              Distributed by<a href="https://ibjects.com" target="_blank">ibjects.com</a></div> -->
-        </div>
-  </div>
-  </footer>
-  <!-- End Footer-->
+                function stop() {
+                    if (timer) { window.clearInterval(timer); timer = null; }
+                }
 
-  </main>
-  </div>
+                breeze.querySelector('[data-breeze-prev]').addEventListener('click', function () { stop(); setActive(bIndex - 1); });
+                breeze.querySelector('[data-breeze-next]').addEventListener('click', function () { stop(); setActive(bIndex + 1); });
+                breeze.addEventListener('mouseenter', stop);
 
-  <!-- ======= Back to Top =======-->
-  <button id="back-to-top"><i class="bi bi-arrow-up-short"></i></button>
-  <!-- End Back to top-->
+                setActive(bIndex);
 
-  <!-- ======= Javascripts =======-->
-  <script src="assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendors/gsap/gsap.min.js"></script>
-  <script src="assets/vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendors/isotope/isotope.pkgd.min.js"></script>
-  <script src="assets/vendors/glightbox/glightbox.min.js"></script>
-  <script src="assets/vendors/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendors/aos/aos.js"></script>
-  <script src="assets/vendors/purecounter/purecounter.js"></script>
-  <script src="assets/js/custom.js"></script>
-  <script src="assets/js/send_email.js"></script>
-  <!-- End JavaScripts-->
+            }
 
+            /* ---- tabbed testimonials ------------------------------------- */
+            document.querySelectorAll('[data-tabs]').forEach(function (tabs) {
+                var buttons = tabs.querySelectorAll('.tab-button');
+                buttons.forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        buttons.forEach(function (b) {
+                            var selected = b === btn;
+                            b.setAttribute('aria-selected', String(selected));
+                            var panel = document.getElementById(b.getAttribute('aria-controls'));
+                            if (panel) panel.hidden = !selected;
+                        });
+                    });
+                });
+            });
+        })();
+
+        (function () {
+            const burger = document.getElementById('navBurger'), mobile = document.getElementById('navMobile');
+            function closeMenu() { mobile.classList.remove('-open'); burger.setAttribute('aria-expanded', 'false'); }
+            mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+            document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobile.classList.contains('-open')) { closeMenu(); burger.focus(); } });
+            window.matchMedia('(min-width:1080px)').addEventListener('change', e => { if (e.matches) closeMenu(); });
+            document.querySelectorAll('[role="tablist"]').forEach(list => { const tabs = [...list.querySelectorAll('[role="tab"]')]; function sync() { tabs.forEach(t => t.tabIndex = t.getAttribute('aria-selected') === 'true' ? 0 : -1); } sync(); tabs.forEach((t, i) => { t.addEventListener('click', sync); t.addEventListener('keydown', e => { let n = i; if (e.key === 'ArrowRight') n = (i + 1) % tabs.length; else if (e.key === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length; else if (e.key === 'Home') n = 0; else if (e.key === 'End') n = tabs.length - 1; else return; e.preventDefault(); tabs[n].click(); tabs[n].focus(); }); }); });
+        })();
+    </script>
 </body>
 
 </html>

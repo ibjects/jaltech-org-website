@@ -108,6 +108,7 @@ const navbarInit = () => {
 
 // ======= Marquee =======
 const logoMarqueeInit = () => {
+  if (typeof gsap === "undefined") return;
   const wrapper = document.querySelector(".logo-wrapper");
   const boxes = gsap.utils.toArray(".logo-item");
   
@@ -232,6 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
   logoMarqueeInit();
   navbarInit();
   window.addEventListener("scroll", navbarScrollInit);
+  navbarScrollInit();
 });
 
 // ======= Swiper =======
