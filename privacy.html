@@ -470,6 +470,30 @@
         break-inside: avoid;
       }
     }
+    .legal-fineprint {
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--legal-muted);
+    }
+
+    .legal-fineprint summary {
+      cursor: pointer;
+      list-style: none;
+      display: inline;
+      text-decoration: underline;
+      text-decoration-color: var(--legal-border);
+      text-underline-offset: 3px;
+    }
+
+    .legal-fineprint summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .legal-section .legal-fineprint p {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--legal-muted);
+    }
   </style>
 
   <!-- ======= Apply theme before paint ======= -->
@@ -791,8 +815,10 @@
                     </a>
                   </div>
 
-                  <h3>Complaints to the Saudi authority</h3>
-                  <p>If your concern relates to personal data subject to the Saudi PDPL and you are not satisfied with JALTech’s response, you may submit a complaint to the Saudi Data &amp; AI Authority (SDAIA) through the National Data Governance Platform at <a href="https://dgp.sdaia.gov.sa/" target="_blank" rel="noopener noreferrer">dgp.sdaia.gov.sa</a>, subject to the procedures and time limits prescribed by law.</p>
+                  <details class="legal-fineprint">
+                    <summary>Regulatory note for Saudi residents</summary>
+                    <p>If your concern relates to personal data subject to the Saudi PDPL and you are not satisfied with JALTech’s response, you may submit a complaint to the Saudi Data &amp; AI Authority (SDAIA) through the National Data Governance Platform at <a href="https://dgp.sdaia.gov.sa/" target="_blank" rel="noopener noreferrer">dgp.sdaia.gov.sa</a>, subject to the procedures and time limits prescribed by law.</p>
+                  </details>
                 </section>
               </article>
             </div>
